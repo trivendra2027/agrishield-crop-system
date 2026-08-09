@@ -1,7 +1,6 @@
 import threading
 import cv2
 import numpy as np
-import tensorflow as tf
 from model.configs.config import PipelineConfig
 
 _py_loader_lock = threading.Lock()

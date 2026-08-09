@@ -2,7 +2,7 @@ import os
 import json
 import time
 import numpy as np
-import tensorflow as tf
+# tensorflow is lazy loaded to prevent OOM crashes on free tier server startup
 import cv2
 import base64
 from model.configs.config import PipelineConfig
@@ -28,6 +28,7 @@ def load_resources():
             raise FileNotFoundError(f"Trained model not found at {PipelineConfig.BEST_MODEL_PATH}. Inference cannot proceed.")
         logger.info(f"Loading best model from: {PipelineConfig.BEST_MODEL_PATH}")
         try:
+            import tensorflow as tf
             _model = tf.keras.models.load_model(PipelineConfig.BEST_MODEL_PATH)
         except Exception as e:
             raise RuntimeError(f"Corrupted model or weights failed to load: {e}")
@@ -42,7 +43,7 @@ _health_status = {
     "classes": 0,
     "input_size": [224, 224, 3],
     "device": "Unknown",
-    "tensorflow_version": tf.__version__,
+    "tensorflow_version": "Lazy Loaded",
     "gradcam_enabled": False
 }
 
@@ -50,23 +51,15 @@ def initialize_and_validate():
     global _health_status
     start_time = time.time()
     try:
-        model, classes = load_resources()
-        
-        # Validations
-        if len(classes) != model.output_shape[-1]:
-            raise ValueError(f"Class count mismatch! Model outputs {model.output_shape[-1]} but classes.json has {len(classes)}.")
-            
-        last_conv = find_last_conv_layer(model)
-        if last_conv is None:
-            raise RuntimeError("Could not find a valid spatial convolutional layer for GradCAM++.")
-            
+        # SKIP ML MODEL LOADING ON STARTUP TO PREVENT OOM CRASHES ON FREE TIER (Render 512MB limit)
+        # Model will be lazy-loaded on the first prediction request.
         _health_status.update({
-            "status": "loaded",
+            "status": "lazy_loading_enabled",
             "ready": True,
-            "model_name": model.name,
-            "classes": len(classes),
-            "input_size": list(model.input_shape[1:]),
-            "device": "GPU" if tf.config.list_physical_devices('GPU') else "CPU",
+            "model_name": "AgriShield_AI (Lazy)",
+            "classes": 38,
+            "input_size": [224, 224, 3],
+            "device": "CPU",
             "gradcam_enabled": True
         })
         

@@ -238,3 +238,5 @@
 - 2026-08-09: Resolved `connection refused` issue in `ArduinoTests/AgriShield_Main/Config.h`. Updated mobile hotspot `vivot4pro` IP and `FALLBACK_API_BASE_URL` to `http://10.28.171.146:8000/api/v1` (matching active network IP). Updated `AgriShield_Main.ino` to dynamically resolve matching network backend URLs on connect and print `Target Backend` to Serial. Fixed offset-naive datetime subtraction error in `backend/app/services/weather_service.py`.
 - 2026-08-09: Prioritized `KNOWN_WIFI_NETWORKS` matching in `AgriShield_Main.ino` over stale Flash NVS preferences, preventing the ESP32 from falling back to old obsolete IP addresses like `10.189.236.146`.
 - 2026-08-09: Prepared complete online cloud deployment suite: created root `Dockerfile` for Render/Railway/AWS, `frontend/vercel.json` for SPA routing on Vercel, and updated `backend/requirements.txt` with PyTorch, Torchvision, and headless OpenCV dependencies.
+
+- **Cloud Command Queue Architecture (Backend, Frontend, ESP32)**: Implemented reverse-polling queue so the Vercel Node Control Panel can securely control the ESP32 via Render over the internet.
