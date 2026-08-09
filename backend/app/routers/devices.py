@@ -45,29 +45,37 @@ class CommandPayload(BaseModel):
     device_id: str
     command: str
 
-# In-memory queue for reverse-polling commands
-# Structure: { "device_id": ["/anim-rain", "/screen-off"] }
-device_commands_queue = {}
-
 @router.post("/command")
 async def enqueue_device_command(payload: CommandPayload):
     """Enqueue a command for a specific device to poll."""
-    if payload.device_id not in device_commands_queue:
-        device_commands_queue[payload.device_id] = []
-    
-    # Cap the queue at 10 commands to prevent memory leaks if device goes offline
-    if len(device_commands_queue[payload.device_id]) < 10:
-        device_commands_queue[payload.device_id].append(payload.command)
+    try:
+        doc = await db_instance.db["devices"].find_one({"device_id": payload.device_id}, {"pending_commands": 1})
+        if doc and len(doc.get("pending_commands", [])) >= 10:
+            raise HTTPException(status_code=429, detail="Command queue full for this device")
+            
+        await db_instance.db["devices"].update_one(
+            {"device_id": payload.device_id},
+            {"$push": {"pending_commands": payload.command}},
+            upsert=True
+        )
         return {"status": "success", "message": "Command queued"}
-    else:
-        raise HTTPException(status_code=429, detail="Command queue full for this device")
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 @router.get("/poll-commands/{device_id}")
 async def poll_device_commands(device_id: str):
     """ESP32 calls this endpoint every 3 seconds to get pending commands."""
-    if device_id in device_commands_queue and len(device_commands_queue[device_id]) > 0:
-        cmd = device_commands_queue[device_id].pop(0)
-        return {"command": cmd}
+    try:
+        doc = await db_instance.db["devices"].find_one_and_update(
+            {"device_id": device_id, "pending_commands.0": {"$exists": True}},
+            {"$pop": {"pending_commands": -1}}
+        )
+        if doc and doc.get("pending_commands"):
+            return {"command": doc["pending_commands"][0]}
+    except Exception as e:
+        print(f"Error polling command for {device_id}: {e}")
     return {"command": None}
 
 

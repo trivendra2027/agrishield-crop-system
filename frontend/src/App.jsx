@@ -7,8 +7,7 @@ import { WebSocketProvider } from './context/WebSocketContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import ErrorBoundary from './components/ErrorBoundary';
 import PageSkeleton from './components/PageSkeleton';
-import { Navbar, Sidebar, Footer } from './components/AppLayout';
-import { ToastProvider } from './components/ui/toast';
+import { Sidebar, Navbar, BottomNav, Footer, Skeleton, ToastProvider } from './components/AppLayout';
 
 // Pages — eagerly loaded (critical path)
 import LandingPage from './pages/LandingPage';
@@ -69,7 +68,7 @@ const DashboardLayout = () => {
       {/* Top Navbar */}
       <Navbar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
       
-      <div className="flex flex-1">
+      <div className="flex flex-1 pb-16 lg:pb-0">
         {/* Left Navigation Sidebar */}
         <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
         
@@ -96,6 +95,9 @@ const DashboardLayout = () => {
           {!isAssistant && <Footer />}
         </main>
       </div>
+
+      {/* Mobile Bottom Navigation */}
+      <BottomNav />
     </div>
   );
 };

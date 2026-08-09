@@ -580,14 +580,14 @@ export const Navbar = ({ sidebarOpen, setSidebarOpen }) => {
                 </Link>
               )}
 
-              {/* Live Time Display */}
-              <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200/80 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-800/40 text-xs font-bold text-slate-700 dark:text-slate-200 font-mono shadow-sm transition-all hover:border-emerald-500/30">
+              {/* Live Time Display - Hidden on Mobile */}
+              <div className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200/80 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-800/40 text-xs font-bold text-slate-700 dark:text-slate-200 font-mono shadow-sm transition-all hover:border-emerald-500/30">
                 <Clock className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 animate-pulse shrink-0" />
                 <span className="tabular-nums tracking-wide">{currentTime || '--:--:--'}</span>
               </div>
 
-              {/* Global Language Selector — shows globe+short code on mobile, full label on sm+ */}
-              <div className="flex items-center gap-1 px-2 py-1 rounded-xl border border-slate-200/80 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-800/40">
+              {/* Global Language Selector - Hidden on Mobile */}
+              <div className="hidden sm:flex items-center gap-1 px-2 py-1 rounded-xl border border-slate-200/80 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-800/40">
                 <Globe className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
                 <select
                   value={i18n.language ? i18n.language.split('-')[0] : 'en'}
@@ -1002,6 +1002,50 @@ export const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
         </div>
       </aside>
     </>
+  );
+};
+
+// 8.5 Mobile Bottom Navigation
+export const BottomNav = () => {
+  const location = useLocation();
+  const currentPath = location.pathname;
+  const { t } = useTranslation();
+  
+  const bottomTabs = [
+    { key: "nav.dashboard", path: "/dashboard", icon: LayoutDashboard, label: "Home" },
+    { key: "nav.farm", path: "/farm", icon: Sprout, label: "Farm" },
+    { key: "nav.scan_crop", path: "/upload", icon: Sparkles, label: "Scan" },
+    { key: "nav.node_control", path: "/node-control", icon: Sliders, label: "Control" },
+    { key: "nav.assistant", path: "/assistant", icon: Bot, label: "AI" },
+  ];
+
+  return (
+    <nav className="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/95 dark:bg-[#050911]/95 backdrop-blur-xl border-t border-slate-200/80 dark:border-slate-800 pb-safe">
+      <div className="flex items-center justify-around h-16 px-2">
+        {bottomTabs.map((tab) => {
+          const Icon = tab.icon;
+          const isActive = currentPath === tab.path || (tab.path === '/upload' && currentPath === '/result');
+          return (
+            <Link
+              key={tab.key}
+              to={tab.path}
+              className={`flex flex-col items-center justify-center w-16 h-full gap-1 transition-all ${
+                isActive 
+                  ? 'text-emerald-600 dark:text-emerald-400' 
+                  : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
+              }`}
+            >
+              <div className={`p-1.5 rounded-xl transition-all ${isActive ? 'bg-emerald-50 dark:bg-emerald-900/30' : ''}`}>
+                <Icon className={`w-5 h-5 ${isActive ? 'animate-pulse' : ''}`} />
+              </div>
+              <span className={`text-[9px] font-semibold tracking-wide ${isActive ? 'font-bold' : ''}`}>
+                {tab.label}
+              </span>
+            </Link>
+          );
+        })}
+      </div>
+    </nav>
   );
 };
 
