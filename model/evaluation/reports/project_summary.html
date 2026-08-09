@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <title>AI Crop Disease Engine - Project Report</title>
+        
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; max-width: 1200px; margin: 0 auto; padding: 20px; background-color: #f7f9fa; }
+        .header { text-align: center; margin-bottom: 40px; border-bottom: 3px solid #2ecc71; padding-bottom: 20px; }
+        .header h1 { color: #2c3e50; font-size: 2.5em; margin: 0; }
+        .header p { color: #7f8c8d; font-size: 1.2em; margin: 10px 0 0 0; }
+        .card { background: white; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); padding: 30px; margin-bottom: 30px; border: 1px solid #e1e8ed; }
+        .card h2 { color: #2c3e50; border-bottom: 1px solid #ecf0f1; padding-bottom: 10px; margin-top: 0; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .stat-box { background: #f8f9fa; border-radius: 8px; padding: 20px; text-align: center; border-left: 4px solid #3498db; }
+        .stat-box.success { border-left-color: #2ecc71; }
+        .stat-box.warning { border-left-color: #f1c40f; }
+        .stat-box .num { font-size: 2.2em; font-weight: bold; color: #2c3e50; margin-bottom: 5px; }
+        .stat-box .label { font-size: 0.9em; color: #7f8c8d; text-transform: uppercase; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid #e1e8ed; }
+        th { background-color: #f4f6f8; color: #2c3e50; font-weight: 600; }
+        tr:hover { background-color: #f9fbfe; }
+        .image-container { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 20px; }
+        .image-card { text-align: center; background: #fff; padding: 15px; border-radius: 8px; border: 1px solid #e1e8ed; max-width: 48%; }
+        .image-card img { max-width: 100%; border-radius: 4px; }
+        .image-card p { font-size: 0.9em; color: #7f8c8d; margin-top: 10px; }
+        .badge { display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 0.85em; font-weight: 600; }
+        .badge-recommended { background-color: #d4edda; color: #155724; }
+    </style>
+    
+    </head>
+    <body>
+        <div class="header">
+            <h1>AI Crop Disease Engine</h1>
+            <p>Final Year Engineering Project: Research & Production Training Report</p>
+        </div>
+    
+        <div class="card">
+            <h2>1. Dataset Quality & Validation Audit</h2>
+            <div class="grid">
+                <div class="stat-box success">
+                    <div class="num">17921</div>
+                    <div class="label">Total Images Scanned</div>
+                </div>
+                <div class="stat-box success">
+                    <div class="num">17921</div>
+                    <div class="label">Clean Retained (Filtered)</div>
+                </div>
+                <div class="stat-box warning">
+                    <div class="num">0</div>
+                    <div class="label">Duplicates Filtered</div>
+                </div>
+                <div class="stat-box warning">
+                    <div class="num">0</div>
+                    <div class="label">Blurry Images Removed</div>
+                </div>
+            </div>
+            <div style="margin-top: 20px;">
+                <p><strong>Average Image Resolution:</strong> 0.0 x 0.0 pixels</p>
+                <p><strong>Dataset Balance Status:</strong> Balanced (Standard Deviation: 0.00)</p>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>2. Hyperparameter Optimization & Tuning</h2>
+            <p><strong>Best Selected Configuration:</strong> Optimizer: Adam, LR: 0.001, Dropout: 0.4, Batch: 16</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Trial</th>
+                        <th>Optimizer</th>
+                        <th>Learning Rate</th>
+                        <th>Dropout</th>
+                        <th>Batch Size</th>
+                        <th>Val Accuracy</th>
+                        <th>Duration</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+            <tr>
+                <td>Trial 1</td>
+                <td>Adam</td>
+                <td>0.001</td>
+                <td>0.4</td>
+                <td>16</td>
+                <td>0.0000</td>
+                <td>268.9s</td>
+            </tr>
+            
+            <tr>
+                <td>Trial 2</td>
+                <td>Adam</td>
+                <td>0.01</td>
+                <td>0.2</td>
+                <td>32</td>
+                <td>0.0000</td>
+                <td>278.4s</td>
+            </tr>
+            
+            <tr>
+                <td>Trial 3</td>
+                <td>SGD</td>
+                <td>0.001</td>
+                <td>0.3</td>
+                <td>16</td>
+                <td>0.0000</td>
+                <td>266.6s</td>
+            </tr>
+            
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="card">
+            <h2>3. Multi-Architecture Baseline Comparison</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Architecture</th>
+                        <th>Accuracy (Fold 0)</th>
+                        <th>Latency</th>
+                        <th>FPS (CPU)</th>
+                        <th>Model Size</th>
+                        <th>Params Count</th>
+                        <th>Training Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+            <tr>
+                <td><strong>MobileNetV3</strong></td>
+                <td>0.3132</td>
+                <td>274.6 ms</td>
+                <td>3.6 FPS</td>
+                <td>13.6 MB</td>
+                <td>384,981</td>
+                <td>57.5 min</td>
+            </tr>
+            
+            <tr>
+                <td><strong>EfficientNetV2</strong></td>
+                <td>0.0589</td>
+                <td>401.2 ms</td>
+                <td>2.5 FPS</td>
+                <td>25.7 MB</td>
+                <td>557,141</td>
+                <td>175.9 min</td>
+            </tr>
+            
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="card">
+            <h2>4. 5-Fold Stratified Cross-Validation Summary</h2>
+            <p><strong>Selected Architecture:</strong> MobileNetV3</p>
+            <div class="grid">
+                <div class="stat-box success">
+                    <div class="num">0.2727</div>
+                    <div class="label">Mean CV Accuracy</div>
+                </div>
+                <div class="stat-box">
+                    <div class="num">&plusmn; 0.0000</div>
+                    <div class="label">Std Deviation</div>
+                </div>
+            </div>
+            <p style="margin-top: 15px;"><strong>Folds Accuracies:</strong> [0.2727]</p>
+        </div>
+        
+        <div class="card">
+            <h2>5. Final Holdout Test Split Metrics & Calibration</h2>
+            <div class="grid">
+                <div class="stat-box success">
+                    <div class="num">0.0707</div>
+                    <div class="label">Test Accuracy (Top-1)</div>
+                </div>
+                <div class="stat-box success">
+                    <div class="num">0.1717</div>
+                    <div class="label">Top-3 Accuracy</div>
+                </div>
+                <div class="stat-box">
+                    <div class="num">0.0674</div>
+                    <div class="label">Mathews Correlation (MCC)</div>
+                </div>
+                <div class="stat-box">
+                    <div class="num">0.1790</div>
+                    <div class="label">Calibration Error (ECE)</div>
+                </div>
+            </div>
+            
+            <div class="image-container">
+                <div class="image-card">
+                    <img src="reliability_diagram.png" alt="Reliability Calibration Diagram" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <p style="display:none; color:#e74c3c;">Calibration Plot not generated</p>
+                    <p>Confidence-to-Accuracy Reliability Diagram</p>
+                </div>
+                <div class="image-card">
+                    <img src="roc_curves.png" alt="ROC Evaluation curves" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <p style="display:none; color:#e74c3c;">ROC Plot not generated</p>
+                    <p>Receiver Operating Characteristic (ROC) Curves</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>6. Production Export & Deployment Optimizations</h2>
+            <p><strong>Automatically Selected Format:</strong> TFLite_FP16</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Format Target</th>
+                        <th>File Size</th>
+                        <th>Inference Latency (Single item)</th>
+                        <th>Throughput (FPS)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+            <tr>
+                <td><strong>Keras</strong></td>
+                <td>51.87 MB</td>
+                <td>167.40 ms</td>
+                <td>6.0 FPS</td>
+            </tr>
+            
+            <tr>
+                <td><strong>TFLite_FP16</strong> <span class="badge badge-recommended">Recommended</span></td>
+                <td>6.50 MB</td>
+                <td>9.12 ms</td>
+                <td>109.7 FPS</td>
+            </tr>
+            
+                </tbody>
+            </table>
+        </div>
+        
+    </body>
+    </html>
+    

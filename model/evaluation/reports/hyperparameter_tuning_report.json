@@ -1,0 +1,44 @@
+{
+  "tuning_results": [
+    {
+      "trial": 1,
+      "learning_rate": 0.001,
+      "dropout_rate": 0.4,
+      "optimizer": "Adam",
+      "batch_size": 16,
+      "val_accuracy": 0.0,
+      "val_loss": 4.430149555206299,
+      "duration_seconds": 268.88752937316895
+    },
+    {
+      "trial": 2,
+      "learning_rate": 0.01,
+      "dropout_rate": 0.2,
+      "optimizer": "Adam",
+      "batch_size": 32,
+      "val_accuracy": 0.0,
+      "val_loss": 4.370728015899658,
+      "duration_seconds": 278.37049531936646
+    },
+    {
+      "trial": 3,
+      "learning_rate": 0.001,
+      "dropout_rate": 0.3,
+      "optimizer": "SGD",
+      "batch_size": 16,
+      "val_accuracy": 0.0,
+      "val_loss": 4.659365653991699,
+      "duration_seconds": 266.6221115589142
+    }
+  ],
+  "best_hyperparameters": {
+    "trial": 1,
+    "learning_rate": 0.001,
+    "dropout_rate": 0.4,
+    "optimizer": "Adam",
+    "batch_size": 16,
+    "val_accuracy": 0.0,
+    "val_loss": 4.430149555206299,
+    "duration_seconds": 268.88752937316895
+  }
+}

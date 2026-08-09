@@ -1,0 +1,61 @@
+{
+  "timestamp": "2026-07-19 18:01:14",
+  "total_classes": 1226,
+  "balanced_dataset_stats": {
+    "total_images": 378396,
+    "min_images_per_class": 200,
+    "max_images_per_class": 9095,
+    "mean_images_per_class": 308.6,
+    "median_images_per_class": 200.0,
+    "classes_fewer_than_50_count": 0,
+    "classes_fewer_than_100_count": 0,
+    "largest_class": {
+      "name": "Negative_Weed_Other",
+      "count": 9095
+    },
+    "smallest_class": {
+      "name": "Abies_alba",
+      "count": 200
+    },
+    "class_imbalance_ratio": 45.48
+  },
+  "train_split_stats": {
+    "total_images": 264877,
+    "min_images_per_class": 140,
+    "max_images_per_class": 6366,
+    "mean_images_per_class": 216.0,
+    "median_images_per_class": 140.0,
+    "classes_fewer_than_50_count": 0,
+    "classes_fewer_than_100_count": 0,
+    "largest_class": {
+      "name": "Negative_Weed_Other",
+      "count": 6366
+    },
+    "smallest_class": {
+      "name": "Abies_alba",
+      "count": 140
+    },
+    "class_imbalance_ratio": 45.47
+  },
+  "resource_estimations": {
+    "estimated_model_size": {
+      "parameters": "25.6 Million",
+      "fp32_uncompressed_mb": 102.4,
+      "fp16_mixed_precision_mb": 51.2,
+      "int8_quantized_tflite_mb": 25.6
+    },
+    "estimated_gpu_memory_usage": {
+      "batch_size_32_vram_gb": 5.2,
+      "batch_size_64_vram_gb": 8.8,
+      "recommended_minimum_vram_gb": "8.0 GB"
+    },
+    "estimated_training_time": {
+      "train_images": 264877,
+      "steps_per_epoch_bs32": 8278,
+      "est_minutes_per_epoch": 19.3,
+      "phase1_classifier_head_15_epochs_hrs": 4.83,
+      "phase2_finetuning_25_epochs_hrs": 10.45,
+      "total_estimated_pipeline_hours": 15.28
+    }
+  }
+}

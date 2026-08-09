@@ -1,0 +1,437 @@
+{
+  "status": "COMPLETED",
+  "total_target_domains_evaluated": 40,
+  "fully_covered_domains": 0,
+  "partially_covered_domains": 1,
+  "gap_domains": 39,
+  "original_class_count": 99,
+  "expanded_class_count": 199,
+  "domain_coverage_details": {
+    "1_Fruit_Maturity": {
+      "target_classes": [
+        "Fruit_Maturity___Immature",
+        "Fruit_Maturity___Mature",
+        "Fruit_Maturity___Overripe"
+      ],
+      "matched_classes": [],
+      "coverage_percentage": 0.0,
+      "status": "Gap Identified"
+    },
+    "2_Fruit_Quality_Grading": {
+      "target_classes": [
+        "Fruit_Grading___Grade_A_Export",
+        "Fruit_Grading___Grade_B_Local",
+        "Fruit_Grading___Grade_C_Damaged"
+      ],
+      "matched_classes": [],
+      "coverage_percentage": 0.0,
+      "status": "Gap Identified"
+    },
+    "3_Fruit_Defects": {
+      "target_classes": [
+        "Fruit_Defect___Cracks",
+        "Fruit_Defect___Bruises",
+        "Fruit_Defect___Sunburn",
+        "Fruit_Defect___Rot"
+      ],
+      "matched_classes": [],
+      "coverage_percentage": 0.0,
+      "status": "Gap Identified"
+    },
+    "4_Leaf_Nutrient_Deficiencies": {
+      "target_classes": [
+        "Nutrient___Nitrogen_Deficiency",
+        "Nutrient___Phosphorus_Deficiency",
+        "Nutrient___Potassium_Deficiency",
+        "Nutrient___Calcium_Deficiency",
+        "Nutrient___Magnesium_Deficiency",
+        "Nutrient___Iron_Deficiency",
+        "Nutrient___Zinc_Deficiency",
+        "Nutrient___Boron_Deficiency"
+      ],
+      "matched_classes": [],
+      "coverage_percentage": 0.0,
+      "status": "Gap Identified"
+    },
+    "5_Soil_Classification": {
+      "target_classes": [
+        "Soil___Clay_Soil",
+        "Soil___Sandy_Soil",
+        "Soil___Loamy_Soil",
+        "Soil___Black_Soil",
+        "Soil___Red_Soil",
+        "Soil___Laterite_Soil",
+        "Soil___Saline_Soil"
+      ],
+      "matched_classes": [],
+      "coverage_percentage": 0.0,
+      "status": "Gap Identified"
+    },
+    "6_Soil_Moisture": {
+      "target_classes": [
+        "Soil_Moisture___Dry",
+        "Soil_Moisture___Optimal",
+        "Soil_Moisture___Saturated"
+      ],
+      "matched_classes": [],
+      "coverage_percentage": 0.0,
+      "status": "Gap Identified"
+    },
+    "7_Soil_Fertility": {
+      "target_classes": [
+        "Soil_Fertility___Low",
+        "Soil_Fertility___Medium",
+        "Soil_Fertility___High"
+      ],
+      "matched_classes": [],
+      "coverage_percentage": 0.0,
+      "status": "Gap Identified"
+    },
+    "8_Weed_Species": {
+      "target_classes": [
+        "Weed___Broadleaf",
+        "Weed___Grass_Weed",
+        "Weed___Sedge",
+        "Weed___Parthenium",
+        "Weed___Amaranthus"
+      ],
+      "matched_classes": [],
+      "coverage_percentage": 0.0,
+      "status": "Gap Identified"
+    },
+    "9_Beneficial_Insects": {
+      "target_classes": [
+        "Beneficial_Insect___Ladybird",
+        "Beneficial_Insect___Honeybee",
+        "Beneficial_Insect___Parasitoid_Wasp",
+        "Beneficial_Insect___Pollinator"
+      ],
+      "matched_classes": [],
+      "coverage_percentage": 0.0,
+      "status": "Gap Identified"
+    },
+    "10_Pest_Life_Stages": {
+      "target_classes": [
+        "Pest_Stage___Egg",
+        "Pest_Stage___Larva",
+        "Pest_Stage___Pupa",
+        "Pest_Stage___Adult"
+      ],
+      "matched_classes": [],
+      "coverage_percentage": 0.0,
+      "status": "Gap Identified"
+    },
+    "11_Disease_Severity": {
+      "target_classes": [
+        "Severity___Mild_Infection",
+        "Severity___Moderate_Infection",
+        "Severity___Severe_Infection"
+      ],
+      "matched_classes": [],
+      "coverage_percentage": 0.0,
+      "status": "Gap Identified"
+    },
+    "12_Multi_Disease": {
+      "target_classes": [
+        "Multi_Disease___Leaf_Spot_plus_Rust",
+        "Multi_Disease___Blight_plus_Mosaic"
+      ],
+      "matched_classes": [],
+      "coverage_percentage": 0.0,
+      "status": "Gap Identified"
+    },
+    "13_Multi_Leaf": {
+      "target_classes": [
+        "Multi_Leaf___Healthy_and_Diseased_Canopy"
+      ],
+      "matched_classes": [],
+      "coverage_percentage": 0.0,
+      "status": "Gap Identified"
+    },
+    "14_Whole_Plant": {
+      "target_classes": [
+        "Plant_View___Whole_Crop_Canopy",
+        "Plant_View___Single_Plant"
+      ],
+      "matched_classes": [],
+      "coverage_percentage": 0.0,
+      "status": "Gap Identified"
+    },
+    "15_Stem_Diseases": {
+      "target_classes": [
+        "Stem_Disease___Stem_Rot",
+        "Stem_Disease___Bacterial_Canker",
+        "Stem_Disease___Stem_Borer_Damage"
+      ],
+      "matched_classes": [],
+      "coverage_percentage": 0.0,
+      "status": "Gap Identified"
+    },
+    "16_Root_Diseases": {
+      "target_classes": [
+        "Root_Disease___Root_Rot",
+        "Root_Disease___Nematode_Galls",
+        "Root_Disease___Damping_Off"
+      ],
+      "matched_classes": [],
+      "coverage_percentage": 0.0,
+      "status": "Gap Identified"
+    },
+    "17_Flower_Diseases": {
+      "target_classes": [
+        "Flower_Disease___Flower_Blight",
+        "Flower_Disease___Botrytis_Rot"
+      ],
+      "matched_classes": [],
+      "coverage_percentage": 0.0,
+      "status": "Gap Identified"
+    },
+    "18_Fruit_Diseases_Extended": {
+      "target_classes": [
+        "Fruit_Disease___Anthracnose",
+        "Fruit_Disease___Black_Spot",
+        "Fruit_Disease___Sooty_Mold"
+      ],
+      "matched_classes": [],
+      "coverage_percentage": 0.0,
+      "status": "Gap Identified"
+    },
+    "19_Seed_Diseases": {
+      "target_classes": [
+        "Seed_Disease___Grain_Smut",
+        "Seed_Disease___Fungal_Seed_Rot"
+      ],
+      "matched_classes": [],
+      "coverage_percentage": 0.0,
+      "status": "Gap Identified"
+    },
+    "20_Bark_Diseases": {
+      "target_classes": [
+        "Bark_Disease___Bark_Canker",
+        "Bark_Disease___Gummosis"
+      ],
+      "matched_classes": [],
+      "coverage_percentage": 0.0,
+      "status": "Gap Identified"
+    },
+    "21_Greenhouse_Crop": {
+      "target_classes": [
+        "Environment___Greenhouse_Indoor_Hydroponic"
+      ],
+      "matched_classes": [],
+      "coverage_percentage": 0.0,
+      "status": "Gap Identified"
+    },
+    "22_Drone_UAV_Imagery": {
+      "target_classes": [
+        "Drone___Canopy_Multispectral",
+        "Drone___RGB_Aerial_Crop_Map"
+      ],
+      "matched_classes": [],
+      "coverage_percentage": 0.0,
+      "status": "Gap Identified"
+    },
+    "23_Satellite_Imagery": {
+      "target_classes": [
+        "Satellite___NDVI_Vegetation_Index"
+      ],
+      "matched_classes": [],
+      "coverage_percentage": 0.0,
+      "status": "Gap Identified"
+    },
+    "24_Field_Scale_Crop_Health": {
+      "target_classes": [
+        "Field___Crop_Stress_Map"
+      ],
+      "matched_classes": [],
+      "coverage_percentage": 0.0,
+      "status": "Gap Identified"
+    },
+    "25_Weather_Damage": {
+      "target_classes": [
+        "Weather_Damage___Hail_Damage",
+        "Weather_Damage___Frost_Damage",
+        "Weather_Damage___Drought_Stress",
+        "Weather_Damage___Flood_Waterlogging",
+        "Weather_Damage___Sunburn"
+      ],
+      "matched_classes": [],
+      "coverage_percentage": 0.0,
+      "status": "Gap Identified"
+    },
+    "26_Chemical_Injury": {
+      "target_classes": [
+        "Chemical___Pesticide_Burn",
+        "Chemical___Insecticide_Toxicity"
+      ],
+      "matched_classes": [],
+      "coverage_percentage": 0.0,
+      "status": "Gap Identified"
+    },
+    "27_Herbicide_Damage": {
+      "target_classes": [
+        "Chemical___Herbicide_Drift_Injury"
+      ],
+      "matched_classes": [],
+      "coverage_percentage": 0.0,
+      "status": "Gap Identified"
+    },
+    "28_Irrigation_Stress": {
+      "target_classes": [
+        "Irrigation___Under_Irrigated",
+        "Irrigation___Over_Irrigated"
+      ],
+      "matched_classes": [],
+      "coverage_percentage": 0.0,
+      "status": "Gap Identified"
+    },
+    "29_Waterlogging": {
+      "target_classes": [
+        "Waterlogging___Root_Anoxia"
+      ],
+      "matched_classes": [],
+      "coverage_percentage": 0.0,
+      "status": "Gap Identified"
+    },
+    "30_Nutrient_Toxicity": {
+      "target_classes": [
+        "Nutrient_Toxicity___Fertilizer_Burn"
+      ],
+      "matched_classes": [],
+      "coverage_percentage": 0.0,
+      "status": "Gap Identified"
+    },
+    "31_Mixed_Crop_Field": {
+      "target_classes": [
+        "Field___Intercropping_Mixed"
+      ],
+      "matched_classes": [],
+      "coverage_percentage": 0.0,
+      "status": "Gap Identified"
+    },
+    "32_Occluded_Leaf": {
+      "target_classes": [
+        "Augmented___Leaf_Occlusion"
+      ],
+      "matched_classes": [],
+      "coverage_percentage": 0.0,
+      "status": "Gap Identified"
+    },
+    "33_Night_Time_Images": {
+      "target_classes": [
+        "Lighting___Night_Flash_Photo"
+      ],
+      "matched_classes": [],
+      "coverage_percentage": 0.0,
+      "status": "Gap Identified"
+    },
+    "34_Low_Light_Images": {
+      "target_classes": [
+        "Lighting___Low_Light_Shadow"
+      ],
+      "matched_classes": [],
+      "coverage_percentage": 0.0,
+      "status": "Gap Identified"
+    },
+    "35_Mobile_Camera_Datasets": {
+      "target_classes": [
+        "Camera___Smartphone_Real_Field"
+      ],
+      "matched_classes": [],
+      "coverage_percentage": 0.0,
+      "status": "Gap Identified"
+    },
+    "36_Farmer_Captured_Photos": {
+      "target_classes": [
+        "Camera___Farmer_Unstructured_Field"
+      ],
+      "matched_classes": [],
+      "coverage_percentage": 0.0,
+      "status": "Gap Identified"
+    },
+    "37_Indian_Crop_Diseases": {
+      "target_classes": [
+        "Region_India___Chilli_Leaf_Curl",
+        "Region_India___Rice_Brown_Spot",
+        "Region_India___Cotton_Wilt"
+      ],
+      "matched_classes": [
+        "Rice___Brown_spot"
+      ],
+      "coverage_percentage": 33.3,
+      "status": "Partially Covered"
+    },
+    "38_Regional_Crops": {
+      "target_classes": [
+        "Region___Tropical_Subtropical_Crops"
+      ],
+      "matched_classes": [],
+      "coverage_percentage": 0.0,
+      "status": "Gap Identified"
+    },
+    "39_Growth_Stages": {
+      "target_classes": [
+        "Growth_Stage___Seedling",
+        "Growth_Stage___Vegetative",
+        "Growth_Stage___Flowering",
+        "Growth_Stage___Fruiting",
+        "Growth_Stage___Maturity"
+      ],
+      "matched_classes": [],
+      "coverage_percentage": 0.0,
+      "status": "Gap Identified"
+    },
+    "40_Harvest_Readiness": {
+      "target_classes": [
+        "Harvest___Ready_For_Harvest",
+        "Harvest___Not_Ready"
+      ],
+      "matched_classes": [],
+      "coverage_percentage": 0.0,
+      "status": "Gap Identified"
+    }
+  },
+  "public_data_sources_queried": [
+    {
+      "ref": "arjuntejaswi/plantvillage-dataset",
+      "category": "General Plant Disease"
+    },
+    {
+      "ref": "vbookshelf/rice-leaf-diseases",
+      "category": "Rice Diseases"
+    },
+    {
+      "ref": "piyushmishra1999/plant-nutrient-deficiency-dataset",
+      "category": "Nutrient Deficiencies"
+    },
+    {
+      "ref": "hmunoz/ip102-pest-dataset",
+      "category": "Pest & Insect Species"
+    },
+    {
+      "ref": "pepepython/deepweeds",
+      "category": "Weed Species"
+    },
+    {
+      "ref": "muratkokludataset/rice-image-dataset",
+      "category": "Grain & Seed Quality"
+    },
+    {
+      "ref": "dhanushkoki/soil-type-classification",
+      "category": "Soil Types"
+    },
+    {
+      "ref": "srinivas1/mango-disease-dataset",
+      "category": "Fruit Diseases"
+    },
+    {
+      "ref": "ashishsaxena2209/cassava-leaf-disease-classification",
+      "category": "Regional Crops"
+    }
+  ],
+  "synthetic_augmentation_recommendations": [
+    "Use GAN / Diffusion / Photometric noise transforms for rare weather damage (Hail, Frost, Waterlogging).",
+    "Use HSV color jitter + spectral shift for fine-grained micronutrient toxicity (Boron, Molybdenum).",
+    "Apply background cutout compositing for multi-leaf and multi-disease simultaneous occurrence."
+  ]
+}

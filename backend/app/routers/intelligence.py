@@ -1,0 +1,120 @@
+from datetime import timezone
+import logging
+from typing import Optional
+from fastapi import APIRouter, Query
+from backend.app.services.weather import WeatherIntelligenceService
+from backend.app.services.irrigation import SmartIrrigationService
+from backend.app.services.risk_forecast import DiseaseRiskForecastService
+from backend.app.services.recommendations import DailyRecommendationsService
+from backend.app.services.crop_calendar import CropCalendarService
+from backend.app.services.farm_health import FarmHealthService
+from backend.app.services.farm_timeline import FarmTimelineService
+
+logger = logging.getLogger(__name__)
+
+router = APIRouter(prefix="/api/intelligence", tags=["Intelligence System"])
+
+weather_service = WeatherIntelligenceService()
+irrigation_service = SmartIrrigationService(weather_service=weather_service)
+risk_service = DiseaseRiskForecastService(weather_service=weather_service)
+recommendations_service = DailyRecommendationsService(
+    weather_service=weather_service,
+    irrigation_service=irrigation_service,
+    risk_service=risk_service
+)
+crop_calendar_service = CropCalendarService()
+farm_health_service = FarmHealthService(weather_service=weather_service)
+farm_timeline_service = FarmTimelineService()
+
+@router.get("/weather", summary="Get Weather Intelligence for Farm Location")
+async def get_weather(
+    farm_id: Optional[str] = Query(None, description="Farm Profile ID"),
+    lat: Optional[float] = Query(None, description="Latitude"),
+    lon: Optional[float] = Query(None, description="Longitude"),
+    bypass_cache: bool = Query(False, description="Bypass cache for live sync")
+):
+    return await weather_service.get_weather_for_farm(
+        farm_id=farm_id, lat=lat, lon=lon, bypass_cache=bypass_cache
+    )
+
+@router.get("/irrigation", summary="Get Smart Irrigation Recommendation")
+async def get_irrigation(
+    farm_id: Optional[str] = Query(None, description="Farm Profile ID"),
+    crop_name: str = Query("Tomato", description="Crop Name"),
+    growth_stage: str = Query("Vegetative", description="Growth Stage"),
+    farm_size: float = Query(1.0, description="Farm Size in Acres"),
+    soil_moisture: Optional[float] = Query(None, description="Soil Moisture %"),
+    lat: float = Query(16.5062, description="Latitude"),
+    lon: float = Query(80.6480, description="Longitude")
+):
+    return await irrigation_service.calculate_irrigation_recommendation(
+        farm_id=farm_id,
+        crop_name=crop_name,
+        growth_stage=growth_stage,
+        farm_size_acres=farm_size,
+        current_soil_moisture=soil_moisture,
+        lat=lat,
+        lon=lon
+    )
+
+@router.get("/disease-risk", summary="Get Explainable Disease Risk Forecast")
+async def get_disease_risk(
+    farm_id: Optional[str] = Query(None, description="Farm Profile ID"),
+    crop_name: str = Query("Tomato", description="Crop Name"),
+    lat: float = Query(16.5062, description="Latitude"),
+    lon: float = Query(80.6480, description="Longitude")
+):
+    return await risk_service.calculate_disease_risk(
+        farm_id=farm_id, crop_name=crop_name, lat=lat, lon=lon
+    )
+
+@router.get("/recommendations", summary="Get Daily AI Recommendations")
+async def get_daily_recommendations(
+    farm_id: Optional[str] = Query(None, description="Farm Profile ID"),
+    crop_name: str = Query("Tomato", description="Crop Name"),
+    growth_stage: str = Query("Vegetative", description="Growth Stage"),
+    farm_size: float = Query(1.0, description="Farm Size in Acres"),
+    lat: float = Query(16.5062, description="Latitude"),
+    lon: float = Query(80.6480, description="Longitude")
+):
+    return await recommendations_service.generate_daily_recommendations(
+        farm_id=farm_id,
+        crop_name=crop_name,
+        growth_stage=growth_stage,
+        farm_size=farm_size,
+        lat=lat,
+        lon=lon
+    )
+
+@router.get("/crop-calendar", summary="Get Crop Lifecycle Calendar")
+async def get_crop_calendar(
+    crop_name: str = Query("Tomato", description="Crop Name"),
+    growth_stage: str = Query("Vegetative", description="Growth Stage"),
+    days_since_sowing: int = Query(42, description="Days Since Sowing")
+):
+    return await crop_calendar_service.get_crop_calendar(
+        crop_name=crop_name, current_stage=growth_stage, days_since_sowing=days_since_sowing
+    )
+
+@router.get("/health-score", summary="Get Farm Health Score 2.0 Breakdown")
+async def get_health_score(
+    farm_id: Optional[str] = Query(None, description="Farm Profile ID"),
+    diseased_ratio: float = Query(0.15, description="Diseased Ratio"),
+    lat: float = Query(16.5062, description="Latitude"),
+    lon: float = Query(80.6480, description="Longitude")
+):
+    return await farm_health_service.calculate_health_score_2(
+        farm_id=farm_id, diseased_ratio=diseased_ratio, lat=lat, lon=lon
+    )
+
+@router.get("/timeline", summary="Get Filterable Farm Activity Timeline")
+async def get_timeline(
+    farm_id: Optional[str] = Query(None, description="Farm Profile ID"),
+    category: str = Query("All", description="Filter Category"),
+    limit: int = Query(20, description="Event Limit")
+):
+    return await farm_timeline_service.get_farm_timeline(
+        farm_id=farm_id, category=category, limit=limit
+    )
+
+

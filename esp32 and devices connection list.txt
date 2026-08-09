@@ -1,0 +1,105 @@
+========================================================================================================================
+                                🌾 ESP32 AND DEVICES CONNECTION LIST
+========================================================================================================================
+Firmware Version : v2.8 Production Pinout
+Target Board     : ESP32 Dev Module (30-Pin / 38-Pin)
+Main Arduino File: ArduinoTests/AgriShield_Main/AgriShield_Main.ino
+Display Type     : 1.3 Inch OLED (SH1106 Driver, Adafruit_SH110X Library, I2C Address 0x3C)
+Combo Sensor     : AHT20 + BMP280 4-Pin Module (Temp, Humidity, Pressure - I2C Address 0x38 & 0x76)
+Light Sensor     : BH1750 5-Pin Module (VCC, GND, SCL, SDA, ADDR -> GND - I2C Address 0x23)
+========================================================================================================================
+
+------------------------------------------------------------------------------------------------------------------------
+1. MASTER HARDWARE WIRING TABLE
+------------------------------------------------------------------------------------------------------------------------
++-------------------------------+---------------------+-------------------+---------+-------------------------------------------------------------+
+| Hardware Component            | Component Pin       | ESP32 GPIO Pin    | Voltage | Function & Hardware Logic                                   |
++-------------------------------+---------------------+-------------------+---------+-------------------------------------------------------------+
+| 1.3" OLED Display (SH1106)    | SDA                 | GPIO 21           | 3.3V    | Shared I2C Data Line                                        |
+|                               | SCL                 | GPIO 22           | 3.3V    | Shared I2C Clock Line (Address 0x3C)                        |
+|                               | VCC / GND           | 3.3V / GND        | 3.3V    | System Power & Ground                                       |
++-------------------------------+---------------------+-------------------+---------+-------------------------------------------------------------+
+| Push Switch (Page Button)     | Terminal 1 (Signal) | GPIO 25 (or 13)   | 3.3V    | Internal INPUT_PULLUP (5-Page Manual Switch)               |
+|                               | Terminal 2 (Ground) | GND               | 0V      | Common Ground                                               |
++-------------------------------+---------------------+-------------------+---------+-------------------------------------------------------------+
+| LED 1: White LED              | Anode (+) via 220Ω  | GPIO 2            | 3.3V    | Power ON Heartbeat: Blinks 100ms every 5 seconds            |
+|                               | Cathode (-)         | GND               | 0V      | Common Ground                                               |
++-------------------------------+---------------------+-------------------+---------+-------------------------------------------------------------+
+| LED 2: Green LED              | Anode (+) via 220Ω  | GPIO 15           | 3.3V    | Wi-Fi Status: Solid ON when connected                       |
+|                               | Cathode (-)         | GND               | 0V      | Common Ground                                               |
++-------------------------------+---------------------+-------------------+---------+-------------------------------------------------------------+
+| LED 3: Blue LED               | Anode (+) via 220Ω  | GPIO 16           | 3.3V    | Bluetooth Status: Solid ON when client paired               |
+|                               | Cathode (-)         | GND               | 0V      | Common Ground                                               |
++-------------------------------+---------------------+-------------------+---------+-------------------------------------------------------------+
+| LED 4: Yellow LED             | Anode (+) via 220Ω  | GPIO 12           | 3.3V    | Data Tx: Flashes 100ms during telemetry data payload upload |
+|                               | Cathode (-)         | GND               | 0V      | Common Ground                                               |
++-------------------------------+---------------------+-------------------+---------+-------------------------------------------------------------+
+| LED 5: Orange LED             | Anode (+) via 220Ω  | GPIO 27           | 3.3V    | Page Switch Feedback: Pulses 120ms on Push Button press     |
+|                               | Cathode (-)         | GND               | 0V      | Common Ground                                               |
++-------------------------------+---------------------+-------------------+---------+-------------------------------------------------------------+
+| LED 6: Red Alert LED          | Anode (+) via 220Ω  | GPIO 26           | 3.3V    | Fault Alarm: Blinks when battery < 20% or sensor fault      |
+|                               | Cathode (-)         | GND               | 0V      | Common Ground                                               |
++-------------------------------+---------------------+-------------------+---------+-------------------------------------------------------------+
+| AHT20 + BMP280 Combo Module   | VDD                 | 3.3V              | 3.3V    | Module Power Input (Red Wire)                               |
+| (Temp, Humidity & Pressure)   | GND                 | GND               | 0V      | Common Ground (Black Wire)                                  |
+|                               | SDA                 | GPIO 21           | 3.3V    | Shared I2C Data Line (Yellow Wire)                          |
+|                               | SCL                 | GPIO 22           | 3.3V    | Shared I2C Clock Line (White Wire)                          |
++-------------------------------+---------------------+-------------------+---------+-------------------------------------------------------------+
+| BH1750 5-Pin Light Sensor     | VCC                 | 3.3V              | 3.3V    | Module Power Input                                          |
+| (Sunlight Intensity)          | GND                 | GND               | 0V      | Common Ground                                               |
+|                               | SDA                 | GPIO 21           | 3.3V    | Shared I2C Data Line                                        |
+|                               | SCL                 | GPIO 22           | 3.3V    | Shared I2C Clock Line                                       |
+|                               | ADDR (ADD)          | GND               | 0V      | MUST Connect ADDR to GND (Sets I2C Address 0x23)            |
++-------------------------------+---------------------+-------------------+---------+-------------------------------------------------------------+
+| Capacitive Soil Moisture      | AO (Analog Out)     | GPIO 34           | 3.3V    | ADC1_CH6 Soil Moisture Analog Input                         |
+|                               | VCC / GND           | 3.3V / GND        | 3.3V    | System Power & Ground                                       |
++-------------------------------+---------------------+-------------------+---------+-------------------------------------------------------------+
+| Rain Droplet Sensor           | AO (Analog Out)     | GPIO 35           | 3.3V    | ADC1_CH7 Rain Intensity Analog Input                        |
+|                               | DO (Digital Out)    | GPIO 33           | 3.3V    | Digital Rain Detection (LOW = Raining)                      |
+|                               | VCC / GND           | 3.3V / GND        | 3.3V    | System Power & Ground                                       |
++-------------------------------+---------------------+-------------------+---------+-------------------------------------------------------------+
+| 4300mAh Battery Voltage Sensor| Signal (S)          | GPIO 32           | 3.3V    | ADC1_CH4 Battery Voltage Divider (0-25V Module)             |
+|                               | BAT+ / GND          | BAT+ / GND        | 0-4.2V  | Battery Positive & Ground                                   |
++-------------------------------+---------------------+-------------------+---------+-------------------------------------------------------------+
+| TP4056 USB Charger            | STAT / CHRG         | GPIO 14           | 3.3V    | Digital Charging Input (LOW = Charging)                     |
++-------------------------------+---------------------+-------------------+---------+-------------------------------------------------------------+
+| MicroSD Card SPI Module       | CS (Chip Select)    | GPIO 5            | 3.3V    | SPI Bus Chip Select                                         |
+|                               | SCK (Clock)         | GPIO 18           | 3.3V    | SPI Clock Line                                              |
+|                               | MOSI (Master Out)   | GPIO 23           | 3.3V    | SPI Data Output from ESP32                                  |
+|                               | MISO (Master In)    | GPIO 19           | 3.3V    | SPI Data Input to ESP32                                     |
+|                               | VCC                 | 5V (VIN)          | 5V      | MUST use 5V (Module contains onboard 3.3V LDO Regulator)    |
+|                               | GND                 | GND               | 0V      | Common Ground                                               |
++-------------------------------+---------------------+-------------------+---------+-------------------------------------------------------------+
+
+
+------------------------------------------------------------------------------------------------------------------------
+2. QUICK ESP32 GPIO PIN LOOKUP MAP
+------------------------------------------------------------------------------------------------------------------------
++----------+---------------------------------------------------+--------------------+-----------------------------------+
+| ESP32    | Connected Device / Feature                        | Pin Mode           | Signal Type / Bus                 |
++----------+---------------------------------------------------+--------------------+-----------------------------------+
+| GPIO 2   | LED 1: White (Power Heartbeat)                    | OUTPUT             | Digital (Pulse 100ms / 5s)        |
+| GPIO 5   | MicroSD Module Chip Select (CS)                   | OUTPUT             | SPI Bus                           |
+| GPIO 12  | LED 4: Yellow (Data Telemetry Tx)                 | OUTPUT             | Digital                           |
+| GPIO 13  | Push Switch Button (Secondary Backup Pin)         | INPUT_PULLUP       | Digital Active LOW                |
+| GPIO 14  | TP4056 USB Charger Status (STAT)                  | INPUT_PULLUP       | Digital Active LOW                |
+| GPIO 15  | LED 2: Green (Wi-Fi Online Indicator)             | OUTPUT             | Digital                           |
+| GPIO 16  | LED 3: Blue (Bluetooth SPP Paired Indicator)      | OUTPUT             | Digital                           |
+| GPIO 17  | DHT22 / Extra Digital Sensor (Optional)           | INPUT              | 1-Wire Digital                    |
+| GPIO 18  | MicroSD Module SCK (SPI Clock)                    | OUTPUT             | SPI Bus                           |
+| GPIO 19  | MicroSD Module MISO (SPI Data In)                 | INPUT              | SPI Bus                           |
+| GPIO 21  | Shared I2C Bus SDA (OLED, AHT20+BMP280, BH1750)   | I/O                | I2C Data Line                     |
+| GPIO 22  | Shared I2C Bus SCL (OLED, AHT20+BMP280, BH1750)   | OUTPUT             | I2C Clock Line                    |
+| GPIO 23  | MicroSD Module MOSI (SPI Data Out)                | OUTPUT             | SPI Bus                           |
+| GPIO 25  | Push Switch Button (Primary Page Switch Pin)      | INPUT_PULLUP       | Digital Active LOW                |
+| GPIO 26  | LED 6: Red Alert (Fault / Low Battery Alarm)      | OUTPUT             | Digital                           |
+| GPIO 27  | LED 5: Orange (Page Switch Button Feedback)       | OUTPUT             | Digital (Pulse 120ms)             |
+| GPIO 32  | 4300mAh Battery Voltage Sensor (Signal Output)    | INPUT              | Analog (ADC1_CH4)                 |
+| GPIO 33  | Rain Sensor Digital Output (DO)                   | INPUT              | Digital Active LOW                |
+| GPIO 34  | Capacitive Soil Moisture Sensor Analog Output(AO) | INPUT              | Analog (ADC1_CH6)                 |
+| GPIO 35  | Rain Sensor Analog Output (AO)                    | INPUT              | Analog (ADC1_CH7)                 |
++----------+---------------------------------------------------+--------------------+-----------------------------------+
+
+========================================================================================================================
+                            END OF CONNECTION LIST DOCUMENT
+========================================================================================================================

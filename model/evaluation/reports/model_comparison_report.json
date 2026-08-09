@@ -1,0 +1,18 @@
+{
+  "MobileNetV3": {
+    "val_accuracy": 0.3131759430229491,
+    "latency_ms": 274.5537281036377,
+    "fps": 3.6422743442861685,
+    "model_size_mb": 13.582201957702637,
+    "trainable_parameters": 384981,
+    "duration_seconds": 3447.835233449936
+  },
+  "EfficientNetV2": {
+    "val_accuracy": 0.05888947507254023,
+    "latency_ms": 401.19828701019287,
+    "fps": 2.4925330749844252,
+    "model_size_mb": 25.656238555908203,
+    "trainable_parameters": 557141,
+    "duration_seconds": 10552.409254074097
+  }
+}

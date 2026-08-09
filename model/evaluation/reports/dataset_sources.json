@@ -1,0 +1,84 @@
+{
+  "sources": [
+    {
+      "name": "PlantVillage Kaggle Repository",
+      "type": "Kaggle",
+      "status": "All Versions Active & Verified",
+      "versions": [
+        "color"
+      ]
+    },
+    {
+      "name": "Rice Leaf Disease Dataset",
+      "type": "UCI / Kaggle",
+      "status": "Active & Verified"
+    },
+    {
+      "name": "Rice Seed Quality Dataset",
+      "type": "KaggleHub",
+      "status": "Active & Verified"
+    },
+    {
+      "name": "PlantDoc Classification Dataset",
+      "type": "GitHub / Open Source",
+      "status": "Active & Verified"
+    },
+    {
+      "name": "IP102 Insect Pest Dataset",
+      "type": "Kaggle / Academic",
+      "classes": 102,
+      "images": 75217,
+      "status": "Active & Verified"
+    },
+    {
+      "name": "DeepWeeds Dataset",
+      "type": "Kaggle / Academic",
+      "classes": 9,
+      "images": 17509,
+      "status": "Active & Verified"
+    },
+    {
+      "name": "Plant Seedlings Dataset",
+      "type": "Kaggle",
+      "classes": 12,
+      "images": 5538,
+      "status": "Active & Verified"
+    },
+    {
+      "name": "Rice Disease Datasets",
+      "type": "Kaggle",
+      "classes": 3,
+      "images": 120,
+      "status": "Active & Verified"
+    },
+    {
+      "name": "PlantCLEF Dataset",
+      "type": "Kaggle",
+      "classes": 1000,
+      "images": 90774,
+      "status": "Active & Verified"
+    },
+    {
+      "name": "Fruit Quality Datasets",
+      "type": "Kaggle",
+      "classes": 11,
+      "images": 6518,
+      "status": "Active & Verified"
+    },
+    {
+      "name": "Nutrient Deficiency Datasets",
+      "type": "Kaggle",
+      "classes": 7,
+      "images": 8620,
+      "status": "Active & Verified"
+    },
+    {
+      "name": "Nutrient Deficiency Extra Datasets",
+      "type": "Kaggle",
+      "classes": 0,
+      "images": 0,
+      "status": "Active & Verified"
+    }
+  ],
+  "total_active_sources": 3
+}

@@ -1,0 +1,81 @@
+{
+  "dataset_name": "split_dataset",
+  "total_classes": 1226,
+  "train": {
+    "images": 264877,
+    "percentage": 70.0,
+    "path": "C:\\AI Crop Disease Detection System\\datasets\\split_dataset\\train"
+  },
+  "val": {
+    "images": 56754,
+    "percentage": 15.0,
+    "path": "C:\\AI Crop Disease Detection System\\datasets\\split_dataset\\val"
+  },
+  "test": {
+    "images": 56765,
+    "percentage": 15.0,
+    "path": "C:\\AI Crop Disease Detection System\\datasets\\split_dataset\\test"
+  },
+  "per_class_sample": {
+    "Acer_saccharinum": {
+      "train": 140,
+      "val": 30,
+      "test": 30,
+      "total": 200
+    },
+    "Achillea_filipendulina": {
+      "train": 140,
+      "val": 30,
+      "test": 30,
+      "total": 200
+    },
+    "Abies_alba": {
+      "train": 140,
+      "val": 30,
+      "test": 30,
+      "total": 200
+    },
+    "Acer_palmatum": {
+      "train": 140,
+      "val": 30,
+      "test": 30,
+      "total": 200
+    },
+    "Acacia_dealbata": {
+      "train": 140,
+      "val": 30,
+      "test": 30,
+      "total": 200
+    },
+    "Abies_cephalonica": {
+      "train": 140,
+      "val": 30,
+      "test": 30,
+      "total": 200
+    },
+    "Acer_opalus": {
+      "train": 140,
+      "val": 30,
+      "test": 30,
+      "total": 200
+    },
+    "Aconitum_lycoctonum": {
+      "train": 140,
+      "val": 30,
+      "test": 30,
+      "total": 200
+    },
+    "Achillea_ptarmica": {
+      "train": 140,
+      "val": 30,
+      "test": 30,
+      "total": 200
+    },
+    "Achillea_millefolium": {
+      "train": 140,
+      "val": 30,
+      "test": 30,
+      "total": 200
+    }
+  }
+}

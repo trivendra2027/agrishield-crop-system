@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-07-19 17:43:55",
+  "target_min_samples_per_class": 200,
+  "total_classes": 1226,
+  "minority_classes_augmented_count": 988,
+  "majority_classes_count": 238,
+  "total_original_images": 251879,
+  "total_augmented_images_generated": 126517,
+  "total_balanced_dataset_images": 378396,
+  "balanced_dir": "C:\\AI Crop Disease Detection System\\datasets\\balanced_dataset",
+  "execution_time_minutes": 24.01
+}

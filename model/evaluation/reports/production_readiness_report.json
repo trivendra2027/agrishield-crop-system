@@ -1,0 +1,10 @@
+{
+  "status": "PASSED",
+  "audit_timestamp": "2026-07-19 10:54:06",
+  "tensorflow_version": "2.21.0",
+  "mixed_precision_enabled": "float32",
+  "findings": [
+    "[WARNING] Some deployment model formats are missing: model.onnx.",
+    "[WARNING] High inference latency on CPU: 518.8ms. Recommend TFLite FP16/INT8 deployment formats."
+  ]
+}

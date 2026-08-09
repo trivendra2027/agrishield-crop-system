@@ -1,0 +1,23 @@
+graph TD
+    classDef green fill:#f1f8e9,stroke:#33691e,stroke-width:2px,color:#000;
+    classDef blue fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#000;
+    classDef purple fill:#f3e5f5,stroke:#4a148c,stroke-width:2px,color:#000;
+    classDef orange fill:#fff3e0,stroke:#e65100,stroke-width:2px,color:#000;
+    classDef grey fill:#f5f5f5,stroke:#424242,stroke-width:2px,color:#000;
+    classDef note fill:none,stroke:none,color:#333;
+
+    subgraph RESPONSE DELIVERY MODULE
+        direction TB
+        A[Processed AI Diagnosis Commit]:::green --> B[Agrochemical Data Serialization]:::blue
+        B --> C[Grad-CAM Heatmap Generator]:::purple
+        C --> D[Outbound Dashboard Router]:::orange
+        D --> E[Farmer Web Dashboard / Mobile Client]:::grey
+    end
+    
+    N1["(Translates AI output &<br/>Treatment to JSON)"]:::note
+    N2["(Attaches XAI visual proof &<br/>disease confidence score)"]:::note
+    N3["(Routes via WebSocket or REST API<br/>back to the farmer's dashboard)"]:::note
+
+    B -.-> N1
+    C -.-> N2
+    D -.-> N3

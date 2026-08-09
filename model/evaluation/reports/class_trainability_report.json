@@ -1,0 +1,23 @@
+{
+  "min_trainable_threshold": 10,
+  "total_trainable_classes": 1222,
+  "total_unsuitable_classes": 4,
+  "unsuitable_classes_details": [
+    {
+      "class": "PlantDoc-Dataset-master",
+      "count": 1
+    },
+    {
+      "class": "Saxifraga_media",
+      "count": 7
+    },
+    {
+      "class": "Scilla_luciliae",
+      "count": 8
+    },
+    {
+      "class": "Tomato_two_spotted_spider_mites_leaf",
+      "count": 2
+    }
+  ]
+}

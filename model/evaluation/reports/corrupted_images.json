@@ -1,0 +1,7 @@
+{
+  "total_corrupted_removed": 25,
+  "reasons": [
+    "Resolution too low (<64x64)",
+    "PIL verify failed"
+  ]
+}

@@ -1,0 +1,44 @@
+graph TD
+    classDef hardware fill:#f9d0c4,stroke:#333,stroke-width:2px;
+    classDef ai fill:#d4e157,stroke:#333,stroke-width:2px;
+    classDef backend fill:#81d4fa,stroke:#333,stroke-width:2px;
+    classDef frontend fill:#ce93d8,stroke:#333,stroke-width:2px;
+    classDef db fill:#ffcc80,stroke:#333,stroke-width:2px;
+
+    subgraph "1. IoT Hardware Node"
+        S1[Sensors: DHT, Soil, Rain, Light]:::hardware
+        A[ESP32 Microcontroller]:::hardware
+        S1 --> A
+    end
+
+    subgraph "2. Web Dashboard (React)"
+        UI_Scan[Upload Leaf Image]:::frontend
+        UI_Dash[View Sensor Analytics]:::frontend
+        UI_Res[View Results & Treatment]:::frontend
+    end
+
+    subgraph "3. Python Backend Server"
+        B[API Gateway]:::backend
+        DB[(Database / MongoDB)]:::db
+        B <--> DB
+    end
+
+    subgraph "4. AI Processing Pipeline"
+        CNN[PyTorch CNN Classifier]:::ai
+        XAI[Explainable AI Heatmap]:::ai
+        REC[Agrochemical Engine]:::ai
+        CNN --> XAI
+        CNN --> REC
+    end
+
+    %% Main Connections
+    A -- "Sends Sensor Data" --> B
+    
+    UI_Scan -- "Sends Image" --> B
+    B -- "Forwards Image" --> CNN
+    
+    XAI -- "Returns Heatmap" --> B
+    REC -- "Returns Treatment" --> B
+    
+    B -- "Sends Live Data" --> UI_Dash
+    B -- "Sends AI Results" --> UI_Res

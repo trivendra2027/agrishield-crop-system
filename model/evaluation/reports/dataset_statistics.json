@@ -1,0 +1,9 @@
+{
+  "total_classes": 1226,
+  "total_images": 251879,
+  "min_images_per_class": 1,
+  "max_images_per_class": 9095,
+  "avg_images_per_class": 205.4,
+  "empty_classes": 0,
+  "trainable_classes": 1222
+}

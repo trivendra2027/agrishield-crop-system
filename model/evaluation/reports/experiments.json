@@ -1,0 +1,112 @@
+[
+  {
+    "timestamp": "2026-06-27 19:26:59",
+    "model_architecture": "MobileNetV3",
+    "hyperparameters": {
+      "optimizer": "AdamW",
+      "learning_rate": 0.001,
+      "batch_size": 32
+    },
+    "metrics": {
+      "test_accuracy": 0.13333333333333333,
+      "test_top3_accuracy": 0.23333333333333334,
+      "balanced_accuracy": 0.0,
+      "mcc": 0.0,
+      "cohens_kappa": 0.0,
+      "calibration_ece": 0.10233969332443343
+    },
+    "duration_minutes": 15.0
+  },
+  {
+    "timestamp": "2026-06-27 23:19:07",
+    "model_architecture": "MobileNetV3",
+    "hyperparameters": {
+      "trial": 1,
+      "learning_rate": 0.0001,
+      "dropout_rate": 0.4,
+      "optimizer": "Adam",
+      "batch_size": 16,
+      "val_accuracy": 0.0,
+      "val_loss": 4.4424967765808105,
+      "duration_seconds": 40.117043018341064
+    },
+    "metrics": {
+      "test_accuracy": 0.10074318744838975,
+      "test_top3_accuracy": 0.20809248554913296,
+      "balanced_accuracy": 0.0,
+      "mcc": 0.0,
+      "cohens_kappa": 0.0,
+      "calibration_ece": 0.06526060749389827
+    },
+    "duration_minutes": 94.57787141005198
+  },
+  {
+    "timestamp": "2026-07-12 15:37:26",
+    "model_architecture": "MobileNetV3",
+    "hyperparameters": {
+      "trial": 1,
+      "learning_rate": 0.001,
+      "dropout_rate": 0.4,
+      "optimizer": "Adam",
+      "batch_size": 16,
+      "val_accuracy": 0.0,
+      "val_loss": 4.430149555206299,
+      "duration_seconds": 268.88752937316895
+    },
+    "metrics": {
+      "test_accuracy": 0.3744834322638816,
+      "test_top3_accuracy": 0.6025246074085205,
+      "balanced_accuracy": 0.3262663291001992,
+      "mcc": 0.36634124878576946,
+      "cohens_kappa": 0.36219239761490796,
+      "calibration_ece": 0.18652752994006397
+    },
+    "duration_minutes": 342.3475991566976
+  },
+  {
+    "timestamp": "2026-07-18 05:24:31",
+    "model_architecture": "MobileNetV3",
+    "hyperparameters": {
+      "trial": 1,
+      "learning_rate": 0.001,
+      "dropout_rate": 0.4,
+      "optimizer": "Adam",
+      "batch_size": 16,
+      "val_accuracy": 0.0,
+      "val_loss": 4.430149555206299,
+      "duration_seconds": 268.88752937316895
+    },
+    "metrics": {
+      "test_accuracy": 0.3477346156736043,
+      "test_top3_accuracy": 0.5622511082725975,
+      "balanced_accuracy": 0.28313634418407657,
+      "mcc": 0.3394614552629136,
+      "cohens_kappa": 0.3350839549283956,
+      "calibration_ece": 0.24769597250269293
+    },
+    "duration_minutes": 454.258924305439
+  },
+  {
+    "timestamp": "2026-07-19 10:53:54",
+    "model_architecture": "MobileNetV3",
+    "hyperparameters": {
+      "trial": 1,
+      "learning_rate": 0.001,
+      "dropout_rate": 0.4,
+      "optimizer": "Adam",
+      "batch_size": 16,
+      "val_accuracy": 0.0,
+      "val_loss": 4.430149555206299,
+      "duration_seconds": 268.88752937316895
+    },
+    "metrics": {
+      "test_accuracy": 0.0707070707070707,
+      "test_top3_accuracy": 0.1717171717171717,
+      "balanced_accuracy": 0.0707070707070707,
+      "mcc": 0.06737291520182832,
+      "cohens_kappa": 0.061224489795918324,
+      "calibration_ece": 0.17904667661647605
+    },
+    "duration_minutes": 3.570550199349721
+  }
+]

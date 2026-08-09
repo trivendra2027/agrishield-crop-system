@@ -1,0 +1,690 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2026-07-22",
+  "default_language": "en",
+  "diseases": {
+    "early_blight": {
+      "display_name": "Early Blight",
+      "affected_crops": ["tomato", "potato", "pepper", "eggplant"],
+      "severity_thresholds": {
+        "low": 0.55,
+        "moderate": 0.70,
+        "high": 0.85,
+        "critical": 0.93
+      },
+      "treatments": {
+        "organic": [
+          "Apply neem oil spray (5ml/L of water) every 7 days until symptoms reduce.",
+          "Use copper-based organic fungicide (Bordeaux mixture 1%) as preventive foliar spray.",
+          "Apply Trichoderma harzianum bio-formulation (5g/L) to soil and foliage.",
+          "Spray diluted baking soda solution (1 tbsp/gallon) to raise leaf surface pH."
+        ],
+        "chemical": [
+          "Spray Mancozeb 75% WP at 2.5g/L of water every 7-10 days.",
+          "Apply Chlorothalonil 75% WP at 2g/L as preventive contact fungicide.",
+          "Use Azoxystrobin 23% SC at 1ml/L for systemic control in severe cases.",
+          "Alternate fungicide groups to prevent resistance buildup."
+        ],
+        "mechanical": [
+          "Remove and destroy infected lower leaves immediately upon detection.",
+          "Prune dense canopy foliage to improve air circulation between plants.",
+          "Apply organic straw mulch (5cm layer) around plant base to prevent soil splash.",
+          "Use drip irrigation instead of overhead watering to keep foliage dry."
+        ],
+        "biological": [
+          "Apply Trichoderma viride bio-agent (5g/L) as soil drench and foliar spray.",
+          "Use Pseudomonas fluorescens (10g/L) as seed treatment and foliar application.",
+          "Introduce Bacillus subtilis bio-fungicide for competitive pathogen exclusion.",
+          "Apply compost tea (fermented 48 hours) as foliar bio-stimulant."
+        ]
+      },
+      "spray": {
+        "best_time": "Early morning (6:00 – 9:00 AM) before temperature rises",
+        "evening_alternative": "Late evening (5:00 – 7:00 PM) after heat subsides",
+        "avoid_rain_hours": 6,
+        "wind_warning": "Do not spray if wind speed exceeds 15 km/h to prevent drift",
+        "interval_days": 7
+      },
+      "recovery": {
+        "expected_days": { "low": 7, "moderate": 14, "high": 21, "critical": 35 },
+        "risk_level": { "low": "Low", "moderate": "Moderate", "high": "High", "critical": "Very High" },
+        "probability": { "low": 0.95, "moderate": 0.80, "high": 0.60, "critical": 0.35 }
+      },
+      "prevention": [
+        "Practice 3-year crop rotation with non-solanaceous crops (legumes, cereals).",
+        "Use certified disease-free seeds and healthy transplants from nurseries.",
+        "Maintain proper plant spacing (60cm between plants) for adequate air circulation.",
+        "Apply organic mulch around plant base to prevent fungal spore splash from soil.",
+        "Remove and destroy all crop debris and volunteer plants after harvest season.",
+        "Avoid overhead irrigation — use drip or furrow irrigation systems.",
+        "Apply preventive fungicide spray at first flowering stage before symptoms appear."
+      ],
+      "tips": [
+        "Inspect lower leaves weekly — Early Blight always starts from the bottom of the plant.",
+        "Water at the base of the plant early in the morning to allow foliage to dry before evening.",
+        "Prune lower suckers and branches touching the soil to reduce infection pathways.",
+        "Keep a crop diary noting when symptoms first appear to plan preventive sprays next season.",
+        "Rotate fungicide chemical groups (M3, 11, 7) every 2 sprays to prevent resistance."
+      ],
+      "source": "ICAR-Indian Institute of Vegetable Research; APS Plant Disease Compendium; Cornell University Plant Pathology"
+    },
+    "late_blight": {
+      "display_name": "Late Blight",
+      "affected_crops": ["tomato", "potato"],
+      "severity_thresholds": {
+        "low": 0.50,
+        "moderate": 0.65,
+        "high": 0.80,
+        "critical": 0.90
+      },
+      "treatments": {
+        "organic": [
+          "Apply copper hydroxide fungicide (2g/L) immediately upon first symptoms.",
+          "Spray Bordeaux mixture (1%) every 5-7 days during wet weather conditions.",
+          "Use potassium bicarbonate (3g/L) as foliar spray to suppress sporulation.",
+          "Apply compost-based bio-fungicide with Bacillus amyloliquefaciens."
+        ],
+        "chemical": [
+          "Apply Metalaxyl + Mancozeb (Ridomil Gold MZ) at 2.5g/L for systemic + contact action.",
+          "Spray Cymoxanil + Mancozeb at 3g/L every 5-7 days in epidemic conditions.",
+          "Use Dimethomorph 50% WP at 1g/L for curative systemic treatment.",
+          "Emergency: Apply Mandipropamid (Revus) at 0.6ml/L for immediate stop-spread."
+        ],
+        "mechanical": [
+          "Immediately remove and destroy all infected plant parts — do NOT compost.",
+          "Improve field drainage to eliminate standing water near crop roots.",
+          "Install raised beds or ridges to improve soil drainage and reduce humidity.",
+          "Use plastic mulch to reduce soil moisture evaporation and splash."
+        ],
+        "biological": [
+          "Apply Trichoderma harzianum (10g/L) as preventive soil and foliar treatment.",
+          "Use Bacillus subtilis strain QST 713 (Serenade) as bio-fungicide.",
+          "Introduce beneficial mycorrhizal fungi in soil to enhance root disease resistance.",
+          "Apply fermented plant extracts (garlic + chili) as natural anti-fungal deterrent."
+        ]
+      },
+      "spray": {
+        "best_time": "Early morning (6:00 – 8:00 AM) — critical during wet/humid weather",
+        "evening_alternative": "Late evening (5:00 – 7:00 PM)",
+        "avoid_rain_hours": 8,
+        "wind_warning": "Avoid spraying during wind; Late Blight spores spread rapidly by wind",
+        "interval_days": 5
+      },
+      "recovery": {
+        "expected_days": { "low": 10, "moderate": 18, "high": 28, "critical": 42 },
+        "risk_level": { "low": "Moderate", "moderate": "High", "high": "Very High", "critical": "Crop Loss Risk" },
+        "probability": { "low": 0.90, "moderate": 0.65, "high": 0.40, "critical": 0.15 }
+      },
+      "prevention": [
+        "Plant certified Late Blight-resistant varieties (e.g., Kufri Jyoti for potato).",
+        "Avoid planting tomatoes and potatoes adjacent to each other in the same field.",
+        "Destroy all volunteer potato tubers and tomato seedlings before planting season.",
+        "Monitor weather forecasts — apply preventive fungicide before humid/rainy spells.",
+        "Ensure good field drainage and avoid low-lying waterlogged planting areas.",
+        "Use pathogen-free seed potatoes from certified sources only.",
+        "Remove and burn all infected plant material immediately — never compost."
+      ],
+      "tips": [
+        "Late Blight can destroy an entire field in 7-10 days — act immediately at first sign.",
+        "Dark water-soaked lesions with white fuzzy growth on underside of leaves confirm Late Blight.",
+        "After heavy rain or fog, scout your field within 48 hours for new symptoms.",
+        "If more than 30% of foliage is infected, consider emergency harvest of unaffected produce.",
+        "Report confirmed Late Blight outbreaks to local agricultural extension services."
+      ],
+      "source": "International Potato Center (CIP); USDA ARS; Cornell Late Blight Decision Support System"
+    },
+    "bacterial_spot": {
+      "display_name": "Bacterial Spot",
+      "affected_crops": ["tomato", "pepper", "chili"],
+      "severity_thresholds": {
+        "low": 0.55,
+        "moderate": 0.70,
+        "high": 0.85,
+        "critical": 0.92
+      },
+      "treatments": {
+        "organic": [
+          "Spray copper oxychloride 50% WP at 3g/L every 7-10 days.",
+          "Apply neem oil (5ml/L) combined with copper for synergistic bacterial control.",
+          "Use acidified copper spray (add citric acid to maintain pH 5.5 in spray solution).",
+          "Apply Bacillus-based bio-bactericide as preventive foliar spray."
+        ],
+        "chemical": [
+          "Spray Streptomycin sulfate (500ppm) + Copper oxychloride (3g/L) combination.",
+          "Apply Kasugamycin 3% SL at 2ml/L for systemic antibacterial action.",
+          "Use Copper hydroxide 77% WP at 2g/L as contact bactericide.",
+          "Alternate antibiotic sprays with copper to prevent bacterial resistance."
+        ],
+        "mechanical": [
+          "Remove and destroy infected leaves and fruits — do not touch healthy plants after.",
+          "Disinfect pruning tools with 10% bleach solution between each plant.",
+          "Avoid working in fields when foliage is wet to prevent bacterial spread.",
+          "Use staking and trellising to keep plants off the ground."
+        ],
+        "biological": [
+          "Apply Pseudomonas fluorescens (10g/L) as seed treatment and foliar spray.",
+          "Use Bacillus subtilis bio-bactericide for competitive exclusion of pathogens.",
+          "Introduce plant growth-promoting rhizobacteria (PGPR) in soil.",
+          "Apply vermicompost tea as foliar bio-stimulant to boost plant immunity."
+        ]
+      },
+      "spray": {
+        "best_time": "Early morning (6:00 – 8:00 AM) when dew has dried",
+        "evening_alternative": "Late evening (5:30 – 7:00 PM)",
+        "avoid_rain_hours": 4,
+        "wind_warning": "Do not spray during rain — bacteria spread through water splash",
+        "interval_days": 7
+      },
+      "recovery": {
+        "expected_days": { "low": 10, "moderate": 18, "high": 25, "critical": 40 },
+        "risk_level": { "low": "Low", "moderate": "Moderate", "high": "High", "critical": "Very High" },
+        "probability": { "low": 0.90, "moderate": 0.72, "high": 0.50, "critical": 0.25 }
+      },
+      "prevention": [
+        "Use certified pathogen-free seeds and transplants from trusted nurseries.",
+        "Practice crop rotation with non-solanaceous crops for at least 2 years.",
+        "Avoid overhead sprinkler irrigation — use drip irrigation only.",
+        "Do not work in fields when plants are wet from dew or rain.",
+        "Sanitize all tools, trays, and greenhouse surfaces with 10% bleach.",
+        "Remove and destroy all crop residues after harvest to eliminate bacterial reservoirs."
+      ],
+      "tips": [
+        "Bacterial Spot lesions are small, dark, and water-soaked — unlike fungal spots which are dry.",
+        "Copper sprays are preventive, not curative — start spraying before symptoms appear.",
+        "Hot, humid weather with frequent rain is peak season for Bacterial Spot outbreaks.",
+        "Wash hands with soap before and after handling infected plants to prevent spread."
+      ],
+      "source": "University of Florida IFAS Extension; APS Compendium of Tomato Diseases"
+    },
+    "powdery_mildew": {
+      "display_name": "Powdery Mildew",
+      "affected_crops": ["grape", "cucumber", "squash", "apple", "mango", "wheat"],
+      "severity_thresholds": {
+        "low": 0.55,
+        "moderate": 0.70,
+        "high": 0.82,
+        "critical": 0.90
+      },
+      "treatments": {
+        "organic": [
+          "Spray milk solution (40% milk in water) every 5-7 days as foliar treatment.",
+          "Apply potassium bicarbonate (3g/L) with wetting agent for surface pH control.",
+          "Use sulfur-based organic fungicide (Wettable Sulfur 80% WP at 3g/L).",
+          "Apply neem oil (5ml/L) combined with baking soda for dual-mode action."
+        ],
+        "chemical": [
+          "Spray Dinocap 48% EC at 1ml/L as contact fungicide against mildew.",
+          "Apply Hexaconazole 5% EC at 2ml/L for systemic curative action.",
+          "Use Azoxystrobin 23% SC at 1ml/L for broad-spectrum strobilurin control.",
+          "Alternate triazole and strobilurin groups to prevent resistance."
+        ],
+        "mechanical": [
+          "Remove heavily infected leaves and dispose of them away from the field.",
+          "Improve plant spacing and prune dense canopy for better air circulation.",
+          "Avoid excessive nitrogen fertilization which promotes soft, susceptible growth.",
+          "Water at soil level — avoid wetting foliage during irrigation."
+        ],
+        "biological": [
+          "Apply Ampelomyces quisqualis (AQ10) bio-fungicide — a hyperparasite of powdery mildew.",
+          "Use Bacillus pumilus strain QST 2808 as preventive bio-fungicide.",
+          "Introduce Trichoderma harzianum in soil to enhance systemic plant resistance.",
+          "Apply dilute whey spray (10%) as a foliar bio-control measure."
+        ]
+      },
+      "spray": {
+        "best_time": "Early morning (6:00 – 9:00 AM) or late evening",
+        "evening_alternative": "Late evening (5:00 – 7:00 PM)",
+        "avoid_rain_hours": 4,
+        "wind_warning": "Powdery mildew thrives in dry conditions — spray during dry weather",
+        "interval_days": 7
+      },
+      "recovery": {
+        "expected_days": { "low": 7, "moderate": 14, "high": 21, "critical": 30 },
+        "risk_level": { "low": "Low", "moderate": "Moderate", "high": "High", "critical": "Very High" },
+        "probability": { "low": 0.95, "moderate": 0.82, "high": 0.65, "critical": 0.40 }
+      },
+      "prevention": [
+        "Plant powdery mildew-resistant cultivars when available.",
+        "Ensure adequate plant spacing (45-60cm) for air movement.",
+        "Avoid excessive nitrogen fertilization — use balanced NPK ratios.",
+        "Prune lower leaves and dense growth to reduce humidity around foliage.",
+        "Apply preventive sulfur spray at flowering stage in susceptible crops.",
+        "Monitor humidity levels — powdery mildew thrives at 60-80% relative humidity."
+      ],
+      "tips": [
+        "White powdery coating on upper leaf surfaces is the hallmark — check both sides.",
+        "Unlike most fungi, Powdery Mildew does NOT need water on leaves to germinate.",
+        "Milk spray (40% concentration) is scientifically proven effective as organic control.",
+        "Sulfur-based sprays should not be applied when temperature exceeds 35°C."
+      ],
+      "source": "UC Davis IPM; ICAR-Indian Institute of Horticultural Research"
+    },
+    "leaf_mold": {
+      "display_name": "Leaf Mold",
+      "affected_crops": ["tomato"],
+      "severity_thresholds": {
+        "low": 0.55,
+        "moderate": 0.70,
+        "high": 0.83,
+        "critical": 0.91
+      },
+      "treatments": {
+        "organic": [
+          "Apply copper-based fungicide (Bordeaux mixture 0.5%) every 10 days.",
+          "Spray neem oil (5ml/L) to suppress fungal spore germination.",
+          "Use baking soda spray (1 tbsp/gallon) to raise leaf surface pH.",
+          "Apply Trichoderma-based bio-fungicide as preventive foliar spray."
+        ],
+        "chemical": [
+          "Spray Mancozeb 75% WP at 2.5g/L as contact preventive fungicide.",
+          "Apply Chlorothalonil 75% WP at 2g/L every 7-10 days.",
+          "Use Azoxystrobin 23% SC at 1ml/L for systemic control in greenhouses.",
+          "Apply Difenoconazole 25% EC at 0.5ml/L as curative systemic treatment."
+        ],
+        "mechanical": [
+          "Improve greenhouse ventilation — open vents and side panels during daytime.",
+          "Remove lower infected leaves and maintain clean plant canopy.",
+          "Reduce plant density to allow air movement between plants.",
+          "Avoid overhead watering — use drip irrigation exclusively."
+        ],
+        "biological": [
+          "Apply Bacillus subtilis bio-fungicide as preventive foliar spray.",
+          "Use Trichoderma viride (5g/L) for competitive exclusion of Cladosporium.",
+          "Introduce Pseudomonas fluorescens as seed and soil treatment.",
+          "Apply compost tea rich in beneficial microorganisms."
+        ]
+      },
+      "spray": {
+        "best_time": "Early morning (7:00 – 9:00 AM) after greenhouse ventilation",
+        "evening_alternative": "Not recommended — high humidity at night worsens leaf mold",
+        "avoid_rain_hours": 4,
+        "wind_warning": "Ensure greenhouse ventilation fans are running during spraying",
+        "interval_days": 10
+      },
+      "recovery": {
+        "expected_days": { "low": 7, "moderate": 12, "high": 20, "critical": 30 },
+        "risk_level": { "low": "Low", "moderate": "Moderate", "high": "High", "critical": "Very High" },
+        "probability": { "low": 0.95, "moderate": 0.82, "high": 0.60, "critical": 0.35 }
+      },
+      "prevention": [
+        "Maintain greenhouse humidity below 85% using ventilation and dehumidifiers.",
+        "Use resistant tomato varieties (e.g., varieties with Cf resistance genes).",
+        "Space plants adequately (60cm) to ensure air circulation.",
+        "Water at soil level early morning to reduce evening leaf wetness.",
+        "Remove all infected debris at end of growing season.",
+        "Sterilize greenhouse structures and tools between growing seasons."
+      ],
+      "tips": [
+        "Yellow patches on upper leaf surface with olive-green mold underneath confirm Leaf Mold.",
+        "Greenhouse tomatoes are most susceptible — open-field crops rarely get Leaf Mold.",
+        "Relative humidity above 85% is the primary driver — control humidity first.",
+        "Prune lower leaves up to the first fruit truss to improve airflow."
+      ],
+      "source": "Cornell University Vegetable MD Online; CABI Invasive Species Compendium"
+    },
+    "common_rust": {
+      "display_name": "Common Rust",
+      "affected_crops": ["corn", "maize", "wheat", "sorghum"],
+      "severity_thresholds": {
+        "low": 0.55,
+        "moderate": 0.70,
+        "high": 0.82,
+        "critical": 0.90
+      },
+      "treatments": {
+        "organic": [
+          "Apply sulfur-based fungicide (Wettable Sulfur 3g/L) as preventive spray.",
+          "Use neem oil (5ml/L) combined with copper for organic rust control.",
+          "Spray potassium bicarbonate (3g/L) to suppress rust pustule development.",
+          "Apply compost tea as foliar bio-stimulant to boost natural plant defenses."
+        ],
+        "chemical": [
+          "Spray Propiconazole 25% EC at 1ml/L for systemic triazole control.",
+          "Apply Mancozeb 75% WP at 2.5g/L as contact protective fungicide.",
+          "Use Azoxystrobin 23% SC at 1ml/L if rust is spreading rapidly.",
+          "Apply Tebuconazole 25.9% EC at 1ml/L for curative treatment."
+        ],
+        "mechanical": [
+          "Remove and destroy heavily infected lower leaves to reduce spore load.",
+          "Maintain clean field borders — remove grassy weed hosts near crop.",
+          "Practice crop residue management — plow under infected stubble after harvest.",
+          "Ensure proper plant spacing for air circulation between rows."
+        ],
+        "biological": [
+          "Apply Trichoderma harzianum (5g/L) as preventive soil and foliar treatment.",
+          "Use Bacillus subtilis bio-fungicide for systemic resistance induction.",
+          "Introduce beneficial soil fungi through organic compost amendments.",
+          "Apply silicon-rich foliar spray (potassium silicate 2g/L) to harden leaf surface."
+        ]
+      },
+      "spray": {
+        "best_time": "Early morning (6:00 – 9:00 AM) when dew has dried",
+        "evening_alternative": "Late evening (5:00 – 7:00 PM)",
+        "avoid_rain_hours": 6,
+        "wind_warning": "Rust spores are wind-borne — spray during calm conditions",
+        "interval_days": 10
+      },
+      "recovery": {
+        "expected_days": { "low": 7, "moderate": 14, "high": 21, "critical": 35 },
+        "risk_level": { "low": "Low", "moderate": "Moderate", "high": "High", "critical": "Very High" },
+        "probability": { "low": 0.93, "moderate": 0.78, "high": 0.55, "critical": 0.30 }
+      },
+      "prevention": [
+        "Plant rust-resistant hybrid varieties recommended for your region.",
+        "Avoid late planting — early planted crops escape peak rust spore season.",
+        "Remove grassy weed hosts (alternate hosts) from field borders.",
+        "Practice crop rotation with non-cereal crops (legumes, oilseeds).",
+        "Scout fields regularly during tasseling and silking stages.",
+        "Apply preventive fungicide at first sign of pustules on lower leaves."
+      ],
+      "tips": [
+        "Small reddish-brown pustules (like cinnamon powder) on both leaf surfaces confirm rust.",
+        "Rust development accelerates between 15-25°C with heavy dew — monitor weather.",
+        "If more than 50% of ear-leaf is covered with pustules, economic yield loss is likely.",
+        "Fungicide application at VT (tasseling) stage gives best return on investment."
+      ],
+      "source": "Purdue University Extension; CIMMYT Maize Disease Handbook"
+    },
+    "rice_blast": {
+      "display_name": "Rice Blast",
+      "affected_crops": ["rice"],
+      "severity_thresholds": {
+        "low": 0.50,
+        "moderate": 0.65,
+        "high": 0.80,
+        "critical": 0.90
+      },
+      "treatments": {
+        "organic": [
+          "Apply Trichoderma-based bio-fungicide (10g/L) as seed treatment and foliar spray.",
+          "Use silicon-rich amendments (rice husk ash) to strengthen plant cell walls.",
+          "Spray Pseudomonas fluorescens (10g/L) as preventive bio-control agent.",
+          "Apply neem cake (250 kg/ha) as soil amendment with anti-fungal properties."
+        ],
+        "chemical": [
+          "Spray Tricyclazole 75% WP at 0.6g/L for preventive systemic protection.",
+          "Apply Isoprothiolane 40% EC at 1.5ml/L for curative systemic action.",
+          "Use Carbendazim 50% WP at 1g/L as emergency curative treatment.",
+          "Apply Kasugamycin 3% SL at 2ml/L for blast and bacterial dual control."
+        ],
+        "mechanical": [
+          "Drain paddy fields periodically to reduce humidity at canopy level.",
+          "Remove infected tillers and panicles to reduce inoculum source.",
+          "Maintain recommended seedling spacing (20x15cm) to reduce humidity.",
+          "Practice balanced fertilization — avoid excess nitrogen (>120 kg N/ha)."
+        ],
+        "biological": [
+          "Apply Pseudomonas fluorescens (10g/L) as seed treatment before sowing.",
+          "Use Trichoderma viride (5g/L) as nursery bed treatment.",
+          "Introduce Bacillus subtilis for induced systemic resistance.",
+          "Apply organic compost enriched with beneficial antagonistic microorganisms."
+        ]
+      },
+      "spray": {
+        "best_time": "Early morning (6:00 – 8:00 AM) before temperature rises",
+        "evening_alternative": "Late evening (5:00 – 6:30 PM)",
+        "avoid_rain_hours": 6,
+        "wind_warning": "Blast spores travel long distances by wind — regional monitoring important",
+        "interval_days": 7
+      },
+      "recovery": {
+        "expected_days": { "low": 10, "moderate": 18, "high": 28, "critical": 45 },
+        "risk_level": { "low": "Moderate", "moderate": "High", "high": "Very High", "critical": "Crop Loss Risk" },
+        "probability": { "low": 0.88, "moderate": 0.65, "high": 0.40, "critical": 0.15 }
+      },
+      "prevention": [
+        "Use blast-resistant rice varieties recommended by ICAR/local research stations.",
+        "Treat seeds with Tricyclazole or bio-agent before sowing.",
+        "Avoid excessive nitrogen fertilization — split N application in 3 doses.",
+        "Maintain proper water management — avoid continuous flooding.",
+        "Remove weed hosts and crop residues that harbor blast fungus.",
+        "Monitor weather — blast is severe during cloudy, cool nights with heavy dew.",
+        "Apply silicon fertilizer (diatomaceous earth) to harden leaf epidermis."
+      ],
+      "tips": [
+        "Diamond-shaped lesions with gray center and brown border on leaves confirm blast.",
+        "Neck blast (infection at panicle base) causes complete grain loss in that panicle.",
+        "Cool nights (20-25°C) with high humidity (>90%) are peak blast conditions.",
+        "Spraying at booting/heading stage is critical to prevent neck blast.",
+        "Report severe blast outbreaks to district agricultural officer for regional advisory."
+      ],
+      "source": "IRRI International Rice Research Institute; ICAR-National Rice Research Institute"
+    },
+    "apple_scab": {
+      "display_name": "Apple Scab",
+      "affected_crops": ["apple", "pear", "crabapple"],
+      "severity_thresholds": {
+        "low": 0.55,
+        "moderate": 0.68,
+        "high": 0.82,
+        "critical": 0.90
+      },
+      "treatments": {
+        "organic": [
+          "Spray lime sulfur (1:40 dilution) during dormant season as preventive.",
+          "Apply copper-based fungicide at green tip stage (before bloom).",
+          "Use sulfur-based fungicide (3g/L) every 7 days during wet spring weather.",
+          "Apply neem oil (5ml/L) as supplemental foliar treatment."
+        ],
+        "chemical": [
+          "Spray Mancozeb 75% WP at 2.5g/L as protective contact fungicide.",
+          "Apply Myclobutanil 10% WP at 0.4g/L as systemic curative treatment.",
+          "Use Captan 50% WP at 2g/L as broad-spectrum protective spray.",
+          "Apply Difenoconazole 25% EC at 0.5ml/L post-infection as kickback treatment."
+        ],
+        "mechanical": [
+          "Rake and destroy fallen scab-infected leaves in autumn to reduce overwintering inoculum.",
+          "Prune trees to open canopy for better air circulation and faster leaf drying.",
+          "Apply urea (5%) to fallen leaves in autumn to accelerate decomposition.",
+          "Remove severely scabbed fruits to prevent secondary infections."
+        ],
+        "biological": [
+          "Apply Bacillus subtilis bio-fungicide as preventive foliar spray.",
+          "Use Trichoderma-enriched compost mulch around tree base.",
+          "Introduce Cladosporium cladosporioides as competitive mycoparasite.",
+          "Apply compost tea as foliar bio-stimulant to enhance phyllosphere diversity."
+        ]
+      },
+      "spray": {
+        "best_time": "Before and during rain events — scab needs rain for infection",
+        "evening_alternative": "Spray before predicted rain in the forecast",
+        "avoid_rain_hours": 2,
+        "wind_warning": "Scab ascospores release during rain — spray before rain, not after",
+        "interval_days": 7
+      },
+      "recovery": {
+        "expected_days": { "low": 14, "moderate": 21, "high": 35, "critical": 56 },
+        "risk_level": { "low": "Low", "moderate": "Moderate", "high": "High", "critical": "Severe" },
+        "probability": { "low": 0.92, "moderate": 0.75, "high": 0.55, "critical": 0.30 }
+      },
+      "prevention": [
+        "Plant scab-resistant apple varieties (Liberty, Enterprise, GoldRush).",
+        "Remove and destroy fallen leaves in autumn — primary inoculum source.",
+        "Prune trees annually for open canopy and rapid leaf drying.",
+        "Apply dormant-season lime sulfur spray before bud break.",
+        "Monitor weather — infection occurs during wet periods lasting 9+ hours.",
+        "Maintain orchard floor clean with mowing and leaf shredding."
+      ],
+      "tips": [
+        "Olive-green velvety spots on leaves and corky scabs on fruit confirm Apple Scab.",
+        "Primary infection window is from green tip to petal fall — most critical spray period.",
+        "Rain + 9 hours of continuous leaf wetness = infection event (Mills Table).",
+        "Post-harvest infected fruit in storage develops storage scab — sort carefully."
+      ],
+      "source": "Cornell University Plant Pathology; Washington State University Tree Fruit"
+    },
+    "healthy": {
+      "display_name": "Healthy Plant",
+      "affected_crops": ["all"],
+      "severity_thresholds": {
+        "low": 1.0,
+        "moderate": 1.0,
+        "high": 1.0,
+        "critical": 1.0
+      },
+      "treatments": {
+        "organic": [
+          "No treatment required — continue regular organic maintenance practices.",
+          "Apply compost or vermicompost as soil health maintenance amendment."
+        ],
+        "chemical": [
+          "No chemical treatment needed for healthy plants.",
+          "Consider preventive foliar micronutrient spray (Zinc + Boron) for optimal growth."
+        ],
+        "mechanical": [
+          "Continue regular pruning and canopy management for optimal growth.",
+          "Maintain clean field surroundings and remove weed competitors."
+        ],
+        "biological": [
+          "Apply Trichoderma or Pseudomonas bio-agents as preventive soil health treatment.",
+          "Maintain soil organic matter through green manure and cover cropping."
+        ]
+      },
+      "spray": {
+        "best_time": "No urgent spray needed",
+        "evening_alternative": "Apply preventive bio-agent spray during cooler hours if desired",
+        "avoid_rain_hours": 0,
+        "wind_warning": "No spray urgency",
+        "interval_days": 21
+      },
+      "recovery": {
+        "expected_days": { "low": 0, "moderate": 0, "high": 0, "critical": 0 },
+        "risk_level": { "low": "None", "moderate": "None", "high": "None", "critical": "None" },
+        "probability": { "low": 1.0, "moderate": 1.0, "high": 1.0, "critical": 1.0 }
+      },
+      "prevention": [
+        "Continue balanced NPK fertilization as per crop growth stage.",
+        "Maintain proper irrigation scheduling based on soil moisture readings.",
+        "Practice crop rotation to maintain soil health and break pest cycles.",
+        "Scout fields weekly for early detection of any emerging pest or disease.",
+        "Keep field borders clean and free from weed hosts.",
+        "Apply preventive bio-agents (Trichoderma, Pseudomonas) every 3 weeks."
+      ],
+      "tips": [
+        "Your crop is healthy! Maintain current management practices.",
+        "Regular field scouting helps catch problems early before they spread.",
+        "Balanced nutrition is key — avoid over-fertilization, especially excess nitrogen.",
+        "Keep detailed crop records for better planning in future seasons."
+      ],
+      "source": "General agronomic best practices; ICAR Crop Production Guidelines"
+    }
+  },
+  "crops": {
+    "tomato": {
+      "scientific_name": "Solanum lycopersicum",
+      "family": "Solanaceae",
+      "typical_growth_stages": ["Seedling", "Vegetative", "Flowering", "Fruiting", "Harvest"],
+      "source": "USDA GRIN Taxonomy; FAO Crop Database"
+    },
+    "potato": {
+      "scientific_name": "Solanum tuberosum",
+      "family": "Solanaceae",
+      "typical_growth_stages": ["Sprouting", "Vegetative", "Tuber Initiation", "Tuber Bulking", "Maturation"],
+      "source": "International Potato Center (CIP); USDA GRIN Taxonomy"
+    },
+    "corn": {
+      "scientific_name": "Zea mays",
+      "family": "Poaceae",
+      "typical_growth_stages": ["Emergence", "Vegetative", "Tasseling", "Silking", "Grain Fill", "Maturity"],
+      "source": "CIMMYT; USDA GRIN Taxonomy"
+    },
+    "rice": {
+      "scientific_name": "Oryza sativa",
+      "family": "Poaceae",
+      "typical_growth_stages": ["Seedling", "Tillering", "Booting", "Heading", "Grain Fill", "Maturity"],
+      "source": "IRRI; USDA GRIN Taxonomy"
+    },
+    "apple": {
+      "scientific_name": "Malus domestica",
+      "family": "Rosaceae",
+      "typical_growth_stages": ["Dormant", "Green Tip", "Bloom", "Petal Fall", "Fruit Development", "Harvest"],
+      "source": "Washington State University; USDA GRIN Taxonomy"
+    },
+    "grape": {
+      "scientific_name": "Vitis vinifera",
+      "family": "Vitaceae",
+      "typical_growth_stages": ["Dormant", "Bud Break", "Flowering", "Veraison", "Harvest"],
+      "source": "UC Davis Viticulture; USDA GRIN Taxonomy"
+    },
+    "wheat": {
+      "scientific_name": "Triticum aestivum",
+      "family": "Poaceae",
+      "typical_growth_stages": ["Germination", "Tillering", "Stem Extension", "Heading", "Grain Fill", "Ripening"],
+      "source": "CIMMYT; FAO Crop Database"
+    },
+    "pepper": {
+      "scientific_name": "Capsicum annuum",
+      "family": "Solanaceae",
+      "typical_growth_stages": ["Seedling", "Vegetative", "Flowering", "Fruiting", "Harvest"],
+      "source": "AVRDC World Vegetable Center; USDA GRIN Taxonomy"
+    },
+    "cucumber": {
+      "scientific_name": "Cucumis sativus",
+      "family": "Cucurbitaceae",
+      "typical_growth_stages": ["Seedling", "Vine Growth", "Flowering", "Fruiting", "Harvest"],
+      "source": "FAO Crop Database; USDA GRIN Taxonomy"
+    },
+    "mango": {
+      "scientific_name": "Mangifera indica",
+      "family": "Anacardiaceae",
+      "typical_growth_stages": ["Dormant", "Flushing", "Flowering", "Fruit Set", "Fruit Development", "Harvest"],
+      "source": "ICAR-Indian Institute of Horticultural Research; USDA GRIN Taxonomy"
+    }
+  },
+  "defaults": {
+    "treatments": {
+      "organic": [
+        "Apply neem oil (5ml/L) or copper-based organic fungicide every 7-10 days.",
+        "Use Bordeaux mixture (1%) as broad-spectrum organic disease control.",
+        "Spray potassium bicarbonate (3g/L) to suppress fungal spore germination.",
+        "Apply compost tea or vermicompost leachate as foliar bio-stimulant."
+      ],
+      "chemical": [
+        "Spray Mancozeb 75% WP at 2.5g/L as broad-spectrum contact fungicide.",
+        "Apply Copper Oxychloride 50% WP at 3g/L for bacterial and fungal control.",
+        "Use systemic fungicide (Carbendazim 1g/L or Hexaconazole 2ml/L) for severe cases.",
+        "Consult local agricultural extension office for region-specific product recommendations."
+      ],
+      "mechanical": [
+        "Remove and destroy visibly infected plant parts immediately.",
+        "Improve plant spacing and air circulation through pruning.",
+        "Use drip irrigation to avoid wetting foliage.",
+        "Apply organic mulch to prevent soil splash onto lower leaves."
+      ],
+      "biological": [
+        "Apply Trichoderma viride or T. harzianum (5g/L) as preventive bio-control agent.",
+        "Use Pseudomonas fluorescens (10g/L) for induced systemic resistance.",
+        "Introduce Bacillus subtilis bio-formulation as soil and foliar treatment.",
+        "Enrich soil with organic compost and beneficial microorganism cultures."
+      ]
+    },
+    "spray": {
+      "best_time": "Early morning (6:00 – 9:00 AM) or late evening (5:00 – 7:00 PM)",
+      "evening_alternative": "Late evening (5:00 – 7:00 PM) if morning not possible",
+      "avoid_rain_hours": 4,
+      "wind_warning": "Do not spray if wind speed exceeds 15 km/h to prevent chemical drift",
+      "interval_days": 10
+    },
+    "recovery": {
+      "expected_days": { "low": 7, "moderate": 14, "high": 28, "critical": 42 },
+      "risk_level": { "low": "Low", "moderate": "Moderate", "high": "High", "critical": "Very High" },
+      "probability": { "low": 0.92, "moderate": 0.75, "high": 0.50, "critical": 0.25 }
+    },
+    "prevention": [
+      "Practice crop rotation every 2-3 seasons with unrelated crop families.",
+      "Use disease-resistant seed varieties certified by local agricultural authorities.",
+      "Maintain proper plant spacing (45-60cm) for adequate air circulation.",
+      "Apply organic mulch to reduce soil splash and maintain moisture balance.",
+      "Monitor fields weekly for early signs of disease — early detection is critical.",
+      "Avoid overhead irrigation — use drip or furrow irrigation to keep foliage dry.",
+      "Remove all crop residues and volunteer plants after harvest season."
+    ],
+    "tips": [
+      "Scout fields early morning when disease symptoms are most visible on dew-covered leaves.",
+      "Keep a detailed crop diary to track disease patterns and improve future prevention.",
+      "Consult local agricultural extension officers for region-specific guidance.",
+      "Balanced plant nutrition (proper NPK ratios) helps plants resist diseases naturally.",
+      "Avoid excessive nitrogen — it promotes soft growth that is highly susceptible to disease."
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "formats_benchmarks": {
+    "Keras": {
+      "size_mb": 51.86546516418457,
+      "latency_ms": 167.4042510986328,
+      "fps": 5.973563953347939
+    },
+    "TFLite_FP16": {
+      "size_mb": 6.497062683105469,
+      "latency_ms": 9.119405746459961,
+      "fps": 109.65626794138285
+    }
+  },
+  "recommended_deployment_format": "TFLite_FP16"
+}

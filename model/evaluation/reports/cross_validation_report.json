@@ -1,0 +1,8 @@
+{
+  "architecture": "MobileNetV3",
+  "fold_accuracies": [
+    0.0024174053182917004
+  ],
+  "mean_accuracy": 0.0024174053182917004,
+  "std_accuracy": 0.0
+}

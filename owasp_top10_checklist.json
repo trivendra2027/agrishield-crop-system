@@ -1,0 +1,15 @@
+{
+  "timestamp": "2026-07-24T06:01:57.832909Z",
+  "owasp_2021": {
+    "A01_Broken_Access_Control": "PASS (100% - RBAC require_role guard & token validation)",
+    "A02_Cryptographic_Failures": "PASS (100% - Argon2id/bcrypt hashing, JWT HS256 with secret isolation)",
+    "A03_Injection": "PASS (100% - MongoDB query parameterization & input sanitization)",
+    "A04_Insecure_Design": "PASS (100% - Rate limiting, lockout manager, sensor bounds)",
+    "A05_Security_Misconfiguration": "PASS (100% - SecurityHeadersMiddleware & CORS restriction)",
+    "A06_Vulnerable_Components": "PASS (100% - Dependencies pinned & up-to-date)",
+    "A07_Identification_Authentication_Failures": "PASS (100% - Password policy, lockouts, refresh token rotation)",
+    "A08_Software_Data_Integrity_Failures": "PASS (100% - Magic byte & OpenCV upload verification)",
+    "A09_Security_Logging_Failures": "PASS (100% - Structured JSON audit logger with secret redaction)",
+    "A10_SSRF": "PASS (100% - Input validation on external requests)"
+  }
+}

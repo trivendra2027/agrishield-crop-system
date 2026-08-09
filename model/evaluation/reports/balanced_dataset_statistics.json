@@ -1,0 +1,12 @@
+{
+  "dataset_name": "balanced_dataset",
+  "total_classes": 1226,
+  "total_images": 378396,
+  "original_images": 251879,
+  "augmented_images": 126517,
+  "min_images_per_class": 200,
+  "max_images_per_class": 9095,
+  "avg_images_per_class": 308.6,
+  "minority_classes_augmented": 988,
+  "majority_classes_direct_copied": 238
+}

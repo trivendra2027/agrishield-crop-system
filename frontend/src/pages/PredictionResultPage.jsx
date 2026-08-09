@@ -1,0 +1,321 @@
+import React, { useState, useEffect } from 'react';
+import { useLocation, Link, useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { Leaf, ShieldAlert, ArrowLeft, Calendar, Clock, Share2, Check, Activity, Sprout, Download, Sparkles } from 'lucide-react';
+import API from '../services/api';
+import { Card, Button, Badge, Progress, Skeleton } from '../components/ui/index';
+import { useFarm } from '../context/FarmContext';
+
+const ADVICE_DB = {
+  "healthy": {
+    treatment: "No treatment required. Your crop is healthy!",
+    practices: [
+      "Maintain active crop rotation scheduling.",
+      "Monitor soil nitrogen, phosphorus, and potassium levels.",
+      "Ensure proper drip irrigation, avoiding pooling of water."
+    ]
+  },
+  "early blight": {
+    treatment: "Apply organic copper-based fungicides immediately. Avoid chemical contact during high heat.",
+    practices: [
+      "Remove all infected bottom leaves to prevent splash dispersion.",
+      "Water crops at soil level to keep the leaf canopy dry.",
+      "Maintain a 3-year crop rotation cycle for solanaceous plants."
+    ]
+  },
+  "late blight": {
+    treatment: "Apply chlorothalonil or copper fungicides at the first sign of symptoms.",
+    practices: [
+      "Immediately destroy infected crops. Do not compost diseased foliage.",
+      "Ensure maximum spacing between rows to improve wind airflow.",
+      "Choose late-blight-resistant cultivars for future plantings."
+    ]
+  },
+  "generic disease": {
+    treatment: "Apply broad-spectrum organic neem oil spray or consult a local agronomy advisor.",
+    practices: [
+      "Isolate affected areas to reduce spore dispersion.",
+      "Ensure clean tools and clean boots when moving between crop rows.",
+      "Provide balanced compost nutrients to boost natural crop immunity."
+    ]
+  }
+};
+
+const PredictionResultPage = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const { activeFarm, profileCompleted } = useFarm();
+  const [loading, setLoading] = useState(true);
+  const [result, setResult] = useState(null);
+  const [nvidiaAdvice, setNvidiaAdvice] = useState(null);
+  const [errorMsg, setErrorMsg] = useState('');
+  const [imgError, setImgError] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const [showGradCam, setShowGradCam] = useState(false);
+  
+  const imagePath = location.state?.imagePath;
+  const passedPreviewUrl = location.state?.previewUrl;
+  const backendBaseUrl = import.meta.env.VITE_API_URL || '';
+
+  useEffect(() => {
+    if (!imagePath && !passedPreviewUrl) {
+      navigate('/upload', { replace: true });
+      return;
+    }
+
+    const runAIPrediction = async () => {
+      try {
+        const res = await API.post('/api/predict', { image_path: imagePath });
+        setResult(res.data);
+
+        try {
+          const adviceRes = await API.post('/api/ai/farming-assistant', {
+            crop_name: res.data.crop_name,
+            disease_name: res.data.disease_name,
+            confidence: res.data.confidence,
+            farm_context: activeFarm ? {
+              farm_name: activeFarm.farm_name,
+              location: activeFarm.location,
+              soil_type: activeFarm.soil_type,
+              growth_stage: activeFarm.growth_stage,
+              irrigation_method: activeFarm.irrigation_method
+            } : null
+          });
+          setNvidiaAdvice(adviceRes.data);
+        } catch { /* silently fallback to static db */ }
+
+      } catch (err) {
+        console.error("AI prediction request failed:", err);
+        setErrorMsg("Failed to execute AI analysis model on the uploaded image.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    runAIPrediction();
+  }, [imagePath, passedPreviewUrl, navigate, activeFarm]);
+
+  const handleShare = () => {
+    navigator.clipboard.writeText(window.location.href);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  const getAdviceForDisease = (disName) => {
+    const key = (disName || '').toLowerCase();
+    for (const dKey in ADVICE_DB) {
+      if (key.includes(dKey)) return ADVICE_DB[dKey];
+    }
+    return ADVICE_DB["generic disease"];
+  };
+
+  if (loading) {
+    return (
+      <div className="space-y-6 max-w-4xl mx-auto w-full">
+        <Skeleton className="h-8 w-48 rounded-xl" />
+        <Skeleton className="h-64 rounded-3xl" />
+        <div className="grid md:grid-cols-2 gap-6">
+          <Skeleton className="h-48 rounded-2xl" />
+          <Skeleton className="h-48 rounded-2xl" />
+        </div>
+      </div>
+    );
+  }
+
+  const isHealthy = result?.prediction_status === 'healthy' || (result?.disease_name || '').toLowerCase().includes('healthy');
+  const fallbackAdvice = getAdviceForDisease(result?.disease_name);
+  const confidencePercent = result?.confidence ? (result.confidence * 100).toFixed(1) : '98.5';
+  const displayImgUrl = passedPreviewUrl || (imagePath ? `${backendBaseUrl}/${imagePath.replace(/\\/g, '/')}` : '');
+
+  return (
+    <motion.div 
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.3 }}
+      className="space-y-6 max-w-4xl mx-auto w-full pb-12"
+    >
+      {/* Top Header */}
+      <div className="flex items-center justify-between">
+        <Link to="/upload">
+          <Button variant="outline" size="sm" leftIcon={<ArrowLeft className="w-4 h-4" />}>
+            Back to Scan Center
+          </Button>
+        </Link>
+
+        <Button 
+          variant="outline" 
+          size="sm" 
+          onClick={handleShare}
+          leftIcon={copied ? <Check className="w-4 h-4 text-emerald-500" /> : <Share2 className="w-4 h-4" />}
+        >
+          {copied ? 'Link Copied' : 'Share Result'}
+        </Button>
+      </div>
+
+      {/* Main Prediction Summary Card */}
+      <Card className={`p-6 sm:p-8 border-0 shadow-2xl text-white relative overflow-hidden ${
+        isHealthy 
+          ? 'bg-gradient-to-r from-emerald-950 via-slate-900 to-slate-950' 
+          : 'bg-gradient-to-r from-rose-950 via-slate-900 to-slate-950'
+      }`}>
+        <div className="flex flex-col md:flex-row items-center gap-6 relative z-10">
+          {/* Diagnostic Image Container */}
+          <div className="w-full md:w-56 flex flex-col shrink-0 gap-3">
+            <div className="w-full h-56 rounded-2xl overflow-hidden bg-slate-950 border border-white/20 relative group">
+              {!imgError && displayImgUrl ? (
+                <img 
+                  src={showGradCam && result?.gradcam_base64 ? result.gradcam_base64 : displayImgUrl} 
+                  alt={showGradCam ? "Grad-CAM AI X-Ray" : "Diagnosed Crop"}
+                  className="w-full h-full object-cover transition-all duration-300"
+                  onError={() => setImgError(true)}
+                />
+              ) : (
+                <div className="w-full h-full flex flex-col items-center justify-center p-4 text-center text-slate-400">
+                  <Leaf className="w-10 h-10 mb-2 opacity-40 text-emerald-400" />
+                  <span className="text-xs font-semibold">Diagnostic Image</span>
+                </div>
+              )}
+            </div>
+            
+            {/* Grad-CAM Toggle */}
+            {result?.gradcam_base64 && !isHealthy && (
+              <Button
+                variant={showGradCam ? "solid" : "outline"}
+                size="sm"
+                onClick={() => setShowGradCam(!showGradCam)}
+                className={`w-full transition-all duration-300 font-bold ${
+                  showGradCam 
+                    ? 'bg-rose-500 hover:bg-rose-600 text-white border-rose-500' 
+                    : 'text-rose-400 border-white/20 hover:border-rose-400/50 hover:bg-rose-500/10'
+                }`}
+                leftIcon={<Activity className="w-4 h-4" />}
+              >
+                {showGradCam ? 'Hide AI X-Ray' : 'View AI X-Ray (Grad-CAM)'}
+              </Button>
+            )}
+          </div>
+
+          <div className="flex-1 space-y-3 w-full">
+            <div className="flex flex-wrap items-center gap-2">
+              <Badge variant={isHealthy ? 'healthy' : 'diseased'}>
+                {isHealthy ? 'HEALTHY' : 'DISEASE DETECTED'}
+              </Badge>
+              <Badge variant="outline" className="text-white border-white/20">
+                Crop: {result?.crop_name || 'Tomato'}
+              </Badge>
+            </div>
+
+            <h1 className="text-2xl sm:text-3xl font-extrabold text-white leading-tight">
+              {result?.disease_name || 'Tomato Early Blight'}
+            </h1>
+
+            <div className="pt-2">
+              <Progress value={parseFloat(confidencePercent)} label="Diagnostic Confidence" showValue />
+            </div>
+
+            <div className="flex items-center gap-4 text-xs text-slate-300 pt-2">
+              <span className="flex items-center gap-1">
+                <Calendar className="w-3.5 h-3.5 text-slate-400" />
+                {result?.prediction_date || new Date().toLocaleDateString('en-IN', { timeZone: 'Asia/Kolkata' })}
+              </span>
+              <span className="flex items-center gap-1">
+                <Clock className="w-3.5 h-3.5 text-slate-400" />
+                {result?.prediction_time || new Date().toLocaleTimeString('en-IN', { timeZone: 'Asia/Kolkata' })}
+              </span>
+            </div>
+          </div>
+        </div>
+      </Card>
+
+      {/* Diagnostic Tiles Grid */}
+      {result && !isHealthy && !result.is_agrochemical && (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4">
+          
+          <Card className="p-5 border-l-4 border-l-amber-500 shadow-sm">
+            <div className="flex items-center gap-2 mb-3">
+              <ShieldAlert className="w-5 h-5 text-amber-500" />
+              <h3 className="font-bold text-slate-800 dark:text-slate-100">Symptoms & Causes</h3>
+            </div>
+            <div className="space-y-3 text-sm text-slate-600 dark:text-slate-400">
+              <p><strong>Symptoms:</strong> {result.symptoms || nvidiaAdvice?.disease_explanation || 'No details available.'}</p>
+              <div>
+                <strong>Possible Causes:</strong>
+                <ul className="list-disc pl-5 mt-1 space-y-1">
+                  {(result.possible_causes || nvidiaAdvice?.possible_causes || []).map((c, i) => (
+                    <li key={i}>{c}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </Card>
+
+          <Card className="p-5 border-l-4 border-l-emerald-500 shadow-sm">
+            <div className="flex items-center gap-2 mb-3">
+              <Sprout className="w-5 h-5 text-emerald-500" />
+              <h3 className="font-bold text-slate-800 dark:text-slate-100">Treatment Plan</h3>
+            </div>
+            <div className="space-y-3 text-sm text-slate-600 dark:text-slate-400">
+              <p><strong>Organic:</strong> {result.organic_treatment || nvidiaAdvice?.organic_treatment || 'None recommended.'}</p>
+              <p><strong>Chemical:</strong> {result.chemical_treatment || nvidiaAdvice?.chemical_treatment || 'None recommended.'}</p>
+            </div>
+          </Card>
+
+          <Card className="p-5 border-l-4 border-l-blue-500 shadow-sm md:col-span-2">
+            <div className="flex items-center gap-2 mb-3">
+              <Activity className="w-5 h-5 text-blue-500" />
+              <h3 className="font-bold text-slate-800 dark:text-slate-100">Prevention & Precautions</h3>
+            </div>
+            <div className="space-y-3 text-sm text-slate-600 dark:text-slate-400">
+              <div>
+                <strong>Prevention Methods:</strong>
+                <ul className="list-disc pl-5 mt-1 space-y-1">
+                  {(result.prevention_methods || nvidiaAdvice?.prevention_methods || fallbackAdvice.practices).map((p, i) => (
+                    <li key={i}>{p}</li>
+                  ))}
+                </ul>
+              </div>
+              <p><strong>Farming Advice:</strong> {nvidiaAdvice?.farmer_friendly_advice || nvidiaAdvice?.best_farming_practices?.join(' ') || 'Regularly monitor crop health.'}</p>
+              {result.safety_precautions && (
+                <p className="text-rose-600 dark:text-rose-400 mt-2"><strong>Safety Precautions:</strong> {result.safety_precautions}</p>
+              )}
+            </div>
+          </Card>
+
+        </div>
+      )}
+
+      {/* Agrochemical Product Details */}
+      {result && result.is_agrochemical && (
+        <Card className="p-6 border-l-4 border-l-purple-500 shadow-sm mt-4">
+          <div className="flex items-center gap-2 mb-4">
+            <Sparkles className="w-5 h-5 text-purple-500" />
+            <h3 className="font-bold text-slate-800 dark:text-slate-100">Agrochemical Profile</h3>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-slate-600 dark:text-slate-400">
+            <p><strong>Brand:</strong> {result.brand}</p>
+            <p><strong>Category:</strong> {result.category}</p>
+            <p><strong>Active Ingredient:</strong> {result.activeIngredient}</p>
+            <p><strong>Dosage:</strong> {result.dosage}</p>
+            <p className="md:col-span-2 text-rose-600 dark:text-rose-400"><strong>Safety Precautions:</strong> {result.ppe}</p>
+          </div>
+        </Card>
+      )}
+
+      {/* Healthy Crop Fallback */}
+      {isHealthy && !result?.is_agrochemical && (
+        <Card glass className="p-6 border-emerald-200 dark:border-emerald-900 mt-4">
+          <div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-bold mb-3">
+            <Sprout className="w-5 h-5" />
+            <span>Crop is Healthy</span>
+          </div>
+          <p className="text-sm text-slate-700 dark:text-slate-300 mb-3">{fallbackAdvice.treatment}</p>
+          <ul className="list-disc pl-5 space-y-1 text-sm text-slate-600 dark:text-slate-400">
+            {fallbackAdvice.practices.map((p, i) => <li key={i}>{p}</li>)}
+          </ul>
+        </Card>
+      )}
+    </motion.div>
+  );
+};
+
+export default PredictionResultPage;

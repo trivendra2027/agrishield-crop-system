@@ -1,0 +1,646 @@
+[
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Apple___Apple_scab\\f6144504-015b-426e-a967-0712cf7621e4___FREC_Scab 3420.JPG",
+    "true_class": "Apple___Apple_scab",
+    "predicted_class": "Chilli___Leaf_Spot",
+    "confidence": 0.23217105865478516,
+    "entropy": 3.0893640518188477
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Apple___Black_rot\\f7565e18-4946-4049-a1cd-ded7d3c09cef___JR_FrgE.S 2755.JPG",
+    "true_class": "Apple___Black_rot",
+    "predicted_class": "Pest___Sawfly",
+    "confidence": 0.1324324607849121,
+    "entropy": 3.2975234985351562
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Apple___Cedar_apple_rust\\f5a27cbb-be27-4416-b9ae-a811e885c131___FREC_C.Rust 3788.JPG",
+    "true_class": "Apple___Cedar_apple_rust",
+    "predicted_class": "Cabbage___healthy",
+    "confidence": 0.2657073438167572,
+    "entropy": 2.8037405014038086
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Apple___healthy\\f205d63f-9621-4509-b6e9-6d0ec7e3a402___RS_HL 7811.JPG",
+    "true_class": "Apple___healthy",
+    "predicted_class": "Pest___Mites",
+    "confidence": 0.16659285128116608,
+    "entropy": 3.181107521057129
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Blueberry___healthy\\f6536c54-5035-4de9-9259-6d7a8d081730___RS_HL 0499.JPG",
+    "true_class": "Blueberry___healthy",
+    "predicted_class": "Chilli___Leaf_Spot",
+    "confidence": 0.13099507987499237,
+    "entropy": 3.262890100479126
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Cassava___Brown_streak\\archive (4)_1616822026721.jpg",
+    "true_class": "Cassava___Brown_streak",
+    "predicted_class": "Pest___Sawfly",
+    "confidence": 0.15980136394500732,
+    "entropy": 3.105776071548462
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Cassava___Mosaic_disease\\archive (4)_uuid_4ba08d53-fb83-4af5-98f5-bc92a28e75ad.jpg",
+    "true_class": "Cassava___Mosaic_disease",
+    "predicted_class": "Pest___Sawfly",
+    "confidence": 0.23206904530525208,
+    "entropy": 2.905135154724121
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Cassava___healthy\\archive (4)_1617171492167.jpg",
+    "true_class": "Cassava___healthy",
+    "predicted_class": "Wheat___Blast",
+    "confidence": 0.136596217751503,
+    "entropy": 3.409386157989502
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Cherry_(including_sour)___Powdery_mildew\\f318d0ce-aa1d-4287-83b7-0b56c8906ef5___FREC_Pwd.M 4683.JPG",
+    "true_class": "Cherry_(including_sour)___Powdery_mildew",
+    "predicted_class": "Chilli___Leaf_Spot",
+    "confidence": 0.37475529313087463,
+    "entropy": 2.55212664604187
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Cherry_(including_sour)___healthy\\f9236ca5-ea7c-4a87-bac0-396883f95ba6___JR_HL 9838.JPG",
+    "true_class": "Cherry_(including_sour)___healthy",
+    "predicted_class": "Chilli___Leaf_Spot",
+    "confidence": 0.09943929314613342,
+    "entropy": 3.405773639678955
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Chilli___Damping_Off\\archive (12)_ROTATE10-download (2).jpeg",
+    "true_class": "Chilli___Damping_Off",
+    "predicted_class": "Pest___Aphids",
+    "confidence": 0.15198755264282227,
+    "entropy": 3.076228380203247
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Chilli___Leaf_Curl_Virus\\archive (12)_ROTATE350-images (34).jpg",
+    "true_class": "Chilli___Leaf_Curl_Virus",
+    "predicted_class": "Pest___Aphids",
+    "confidence": 0.17340421676635742,
+    "entropy": 2.6706345081329346
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Chilli___Veinal_Mottle_Virus\\archive (12)_Nutrition Deficiency00411_zoomed_451.jpg",
+    "true_class": "Chilli___Veinal_Mottle_Virus",
+    "predicted_class": "Vegetable___Carrot",
+    "confidence": 0.2726353704929352,
+    "entropy": 2.6278953552246094
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Chilli___Whitefly\\archive (12)_ROTATE350-images - 2021-05-19T012706.205.jpg",
+    "true_class": "Chilli___Whitefly",
+    "predicted_class": "Chilli___Leaf_Spot",
+    "confidence": 0.25948622822761536,
+    "entropy": 2.629791736602783
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Chilli___Yellowish\\archive (12)_yellowish24.jpg",
+    "true_class": "Chilli___Yellowish",
+    "predicted_class": "Wheat___Blast",
+    "confidence": 0.30551877617836,
+    "entropy": 2.589768886566162
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Chilli___healthy\\archive (19)_20190801-112013-842390.jpg",
+    "true_class": "Chilli___healthy",
+    "predicted_class": "Vegetable___Radish",
+    "confidence": 0.3509836196899414,
+    "entropy": 2.3527615070343018
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot\\f421d03e-750a-4423-bf6f-c1ac48795f8d___RS_GLSp 4642.JPG",
+    "true_class": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    "predicted_class": "Wheat___Blast",
+    "confidence": 0.3436957001686096,
+    "entropy": 2.7271106243133545
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Corn_(maize)___Common_rust_\\RS_Rust 2694.JPG",
+    "true_class": "Corn_(maize)___Common_rust_",
+    "predicted_class": "Chilli___Leaf_Spot",
+    "confidence": 0.22229239344596863,
+    "entropy": 2.984251022338867
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Corn_(maize)___Northern_Leaf_Blight\\f51cd705-475e-4ced-877a-53422d0d2854___RS_NLB 3808.JPG",
+    "true_class": "Corn_(maize)___Northern_Leaf_Blight",
+    "predicted_class": "Wheat___Blast",
+    "confidence": 0.21325697004795074,
+    "entropy": 3.1066417694091797
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Corn_(maize)___healthy\\f327dad3-e4af-42f0-ab8f-94c1b57c0203___R.S_HL 8088 copy 2.jpg",
+    "true_class": "Corn_(maize)___healthy",
+    "predicted_class": "Vegetable___Radish",
+    "confidence": 0.35482966899871826,
+    "entropy": 2.470614194869995
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Cotton___Bacterial_blight\\archive (8)_bact86.jpg",
+    "true_class": "Cotton___Bacterial_blight",
+    "predicted_class": "Pest___Sawfly",
+    "confidence": 0.2390422374010086,
+    "entropy": 3.090542793273926
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Cotton___Curl_virus\\archive (8)_curl83.jpg",
+    "true_class": "Cotton___Curl_virus",
+    "predicted_class": "Peach___healthy",
+    "confidence": 0.14323779940605164,
+    "entropy": 3.135467767715454
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Cotton___Fusarium_wilt\\archive (8)_fus87.jpg",
+    "true_class": "Cotton___Fusarium_wilt",
+    "predicted_class": "Pest___Sawfly",
+    "confidence": 0.2909092605113983,
+    "entropy": 2.9978373050689697
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Cotton___healthy\\archive (8)_h82.jpg",
+    "true_class": "Cotton___healthy",
+    "predicted_class": "Chilli___Leaf_Spot",
+    "confidence": 0.3901500701904297,
+    "entropy": 2.715542793273926
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Ginger___healthy\\archive (19)_20190801-112222-782566.jpg",
+    "true_class": "Ginger___healthy",
+    "predicted_class": "Vegetable___Potato",
+    "confidence": 0.323830246925354,
+    "entropy": 2.6077120304107666
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Grape___Black_rot\\edd4a96a-0194-4e62-b9e5-091c066a004b___FAM_B.Rot 3162.JPG",
+    "true_class": "Grape___Black_rot",
+    "predicted_class": "Chilli___Leaf_Spot",
+    "confidence": 0.2480422705411911,
+    "entropy": 3.0792911052703857
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Grape___Esca_(Black_Measles)\\f18ca6c7-365a-49a7-bea2-4b1928c1fedd___FAM_B.Msls 4470.JPG",
+    "true_class": "Grape___Esca_(Black_Measles)",
+    "predicted_class": "Peach___healthy",
+    "confidence": 0.23046256601810455,
+    "entropy": 3.1157844066619873
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Grape___Leaf_blight_(Isariopsis_Leaf_Spot)\\ed87e1a9-8433-4ba8-a025-241d14c559e2___FAM_L.Blight 4581.JPG",
+    "true_class": "Grape___Leaf_blight_(Isariopsis_Leaf_Spot)",
+    "predicted_class": "Chilli___Leaf_Spot",
+    "confidence": 0.22407758235931396,
+    "entropy": 3.101498603820801
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Grape___healthy\\f7c74956-3e0c-4669-b313-bf6e4559a91d___Mt.N.V_HL 9086.JPG",
+    "true_class": "Grape___healthy",
+    "predicted_class": "Chilli___Leaf_Spot",
+    "confidence": 0.217854842543602,
+    "entropy": 3.14638090133667
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Onion___healthy\\archive (19)_IMG_20190730_084909.jpg",
+    "true_class": "Onion___healthy",
+    "predicted_class": "Chilli___Leaf_Spot",
+    "confidence": 0.1479416936635971,
+    "entropy": 3.1856305599212646
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Orange___Haunglongbing_(Citrus_greening)\\f3875b5f-f8c4-4b6e-a3ef-107021f3392b___UF.Citrus_HLB_Lab 0958.JPG",
+    "true_class": "Orange___Haunglongbing_(Citrus_greening)",
+    "predicted_class": "Chilli___Leaf_Spot",
+    "confidence": 0.29548048973083496,
+    "entropy": 2.6022417545318604
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Peach___Bacterial_spot\\f48b3d8f-9d43-4c8e-938a-34d454dc59b9___Rutg._Bact.S 1486.JPG",
+    "true_class": "Peach___Bacterial_spot",
+    "predicted_class": "Chilli___Leaf_Spot",
+    "confidence": 0.24780984222888947,
+    "entropy": 3.073024034500122
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Peach___healthy\\f28221b4-5659-4391-ae23-25cb20d3176d___Rutg._HL 3641.JPG",
+    "true_class": "Peach___healthy",
+    "predicted_class": "Pest___Mosquito",
+    "confidence": 0.14764991402626038,
+    "entropy": 3.2482872009277344
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Pepper,_bell___Bacterial_spot\\f3fb294f-21d3-44b3-bfab-256fed2fc2c8___NREC_B.Spot 9156.JPG",
+    "true_class": "Pepper,_bell___Bacterial_spot",
+    "predicted_class": "Vegetable___Radish",
+    "confidence": 0.2539740800857544,
+    "entropy": 2.864635944366455
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Pepper,_bell___healthy\\f460de9c-14ab-4bac-8cb6-b25c958ae78f___JR_HL 8596.JPG",
+    "true_class": "Pepper,_bell___healthy",
+    "predicted_class": "Chilli___Leaf_Spot",
+    "confidence": 0.19793884456157684,
+    "entropy": 3.204730749130249
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Pest___Aphids\\archive (7)_jpg_60 - Copy (2).jpg",
+    "true_class": "Pest___Aphids",
+    "predicted_class": "Chilli___Whitefly",
+    "confidence": 0.3536790609359741,
+    "entropy": 2.3744235038757324
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Pest___Armyworm\\archive (7)_jpg_41 - Copy (2).jpg",
+    "true_class": "Pest___Armyworm",
+    "predicted_class": "Wheat___Smut",
+    "confidence": 0.21349434554576874,
+    "entropy": 2.762995481491089
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Pest___BT\\archive13_kutu-kebul--91-_jpg.rf.ca2ed87178f81cef32491c47ec8f9f66.jpg",
+    "true_class": "Pest___BT",
+    "predicted_class": "Chilli___Leaf_Spot",
+    "confidence": 0.41856837272644043,
+    "entropy": 2.5932457447052
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Pest___Beetle\\archive (7)_jpg_6 - Copy (2).jpg",
+    "true_class": "Pest___Beetle",
+    "predicted_class": "Pest___Aphids",
+    "confidence": 0.2057727724313736,
+    "entropy": 3.167949914932251
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Pest___Bollworm\\archive (7)_jpg_40 - Copy (2).jpg",
+    "true_class": "Pest___Bollworm",
+    "predicted_class": "Chilli___Leaf_Spot",
+    "confidence": 0.3249133229255676,
+    "entropy": 2.7032954692840576
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Pest___C\\archive13_ulat--946-_jpg.rf.93e1bfead1584e6b59bc23db6bc15ee1.jpg",
+    "true_class": "Pest___C",
+    "predicted_class": "Pest___Sawfly",
+    "confidence": 0.21114970743656158,
+    "entropy": 2.9488892555236816
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Pest___Grasshopper\\archive (7)_jpg_38 - Copy (2).jpg",
+    "true_class": "Pest___Grasshopper",
+    "predicted_class": "Pest___Mosquito",
+    "confidence": 0.22912432253360748,
+    "entropy": 2.7601418495178223
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Pest___Mites\\archive (7)_jpg_69 - Copy (2).jpg",
+    "true_class": "Pest___Mites",
+    "predicted_class": "Vegetable___Carrot",
+    "confidence": 0.16508924961090088,
+    "entropy": 2.8882288932800293
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Pest___Mosquito\\archive (7)_jpg_37 - Copy (2).jpg",
+    "true_class": "Pest___Mosquito",
+    "predicted_class": "Chilli___Leaf_Spot",
+    "confidence": 0.20773552358150482,
+    "entropy": 2.9105498790740967
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Pest___Sawfly\\archive (7)_jpg_59 - Copy (2).jpg",
+    "true_class": "Pest___Sawfly",
+    "predicted_class": "Chilli___Leaf_Spot",
+    "confidence": 0.1877737045288086,
+    "entropy": 3.1449804306030273
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Pest___Stem_Borer\\archive (7)_jpg_41 - Copy (2).jpg",
+    "true_class": "Pest___Stem_Borer",
+    "predicted_class": "Chilli___Leaf_Spot",
+    "confidence": 0.3550766110420227,
+    "entropy": 2.285794973373413
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Pest___T\\archive13_thrips-baru--153-_jpg.rf.b0ada442a99e0b23ae883ff723c55c2e.jpg",
+    "true_class": "Pest___T",
+    "predicted_class": "Vegetable___Carrot",
+    "confidence": 0.15656565129756927,
+    "entropy": 3.16383695602417
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Potato___Early_blight\\f6d8c094-970c-41c5-9f5d-3ded7c8f7b15___RS_Early.B 6846.JPG",
+    "true_class": "Potato___Early_blight",
+    "predicted_class": "Chilli___Leaf_Spot",
+    "confidence": 0.12848201394081116,
+    "entropy": 3.3275675773620605
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Potato___Late_blight\\f87fce12-78df-4a8c-92ff-8c0b83cc82b9___RS_LB 3025.JPG",
+    "true_class": "Potato___Late_blight",
+    "predicted_class": "Chilli___Leaf_Spot",
+    "confidence": 0.192277729511261,
+    "entropy": 3.06093692779541
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Potato___healthy\\dbe4f332-9189-4b76-b30c-f0c9a55e48d3___RS_HL 1841.JPG",
+    "true_class": "Potato___healthy",
+    "predicted_class": "Pepper,_bell___Bacterial_spot",
+    "confidence": 0.1637004166841507,
+    "entropy": 3.01700496673584
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Raspberry___healthy\\eda7f6bf-dc99-4287-a38c-f259e2f21886___Mary_HL 9323.JPG",
+    "true_class": "Raspberry___healthy",
+    "predicted_class": "Chilli___Leaf_Spot",
+    "confidence": 0.11364314705133438,
+    "entropy": 3.3157002925872803
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Rice___Bacterial_leaf_blight\\online_blight_rotated_062.JPG",
+    "true_class": "Rice___Bacterial_leaf_blight",
+    "predicted_class": "Vegetable___Radish",
+    "confidence": 0.37703290581703186,
+    "entropy": 2.394937753677368
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Rice___Blast\\online_blast_rotated_048.JPG",
+    "true_class": "Rice___Blast",
+    "predicted_class": "Chilli___Leaf_Spot",
+    "confidence": 0.2104741632938385,
+    "entropy": 2.9147067070007324
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Rice___Brown_spot\\online_brownspot_rotated_023.jpg",
+    "true_class": "Rice___Brown_spot",
+    "predicted_class": "Wheat___Blast",
+    "confidence": 0.2111218273639679,
+    "entropy": 2.6724939346313477
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Rice___Leaf_smut\\DSC_0327.JPG",
+    "true_class": "Rice___Leaf_smut",
+    "predicted_class": "Cabbage___healthy",
+    "confidence": 0.25805023312568665,
+    "entropy": 2.5638060569763184
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Soybean___healthy\\f3beff14-cccd-4e8f-927b-d38f6470b03b___RS_HL 3245.JPG",
+    "true_class": "Soybean___healthy",
+    "predicted_class": "Chilli___Leaf_Spot",
+    "confidence": 0.299881249666214,
+    "entropy": 2.939225435256958
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Squash___Powdery_mildew\\f5334083-a26d-4729-9f4d-baacdf85dd84___MD_Powd.M 0673.JPG",
+    "true_class": "Squash___Powdery_mildew",
+    "predicted_class": "Chilli___Leaf_Spot",
+    "confidence": 0.30440759658813477,
+    "entropy": 2.802910804748535
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Strawberry___Leaf_scorch\\f3b3e84e-41c7-443c-9202-54b9002ae06a___RS_L.Scorch 1429.JPG",
+    "true_class": "Strawberry___Leaf_scorch",
+    "predicted_class": "Chilli___Leaf_Spot",
+    "confidence": 0.13746371865272522,
+    "entropy": 3.243671417236328
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Strawberry___healthy\\f90cc425-5b46-4abd-b58a-11306f471542___RS_HL 4337.JPG",
+    "true_class": "Strawberry___healthy",
+    "predicted_class": "Chilli___Leaf_Spot",
+    "confidence": 0.19970615208148956,
+    "entropy": 3.080944538116455
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Tomato___Bacterial_spot\\archive (11)_f144a9b5-bdbb-48ca-a454-4885137f805a___GCREC_Bact.Sp 3629.JPG",
+    "true_class": "Tomato___Bacterial_spot",
+    "predicted_class": "Chilli___Leaf_Spot",
+    "confidence": 0.3296297490596771,
+    "entropy": 2.8318068981170654
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Tomato___Early_blight\\archive (11)_Tomato___Early_blight_original_8a089fe7-9e6a-4db7-b0e8-9792e4abc326___RS_Erly.B 7466.JPG_1ec2c7cb-30b9-4218-94df-615eca4e0f20.JPG",
+    "true_class": "Tomato___Early_blight",
+    "predicted_class": "Chilli___Leaf_Spot",
+    "confidence": 0.543369710445404,
+    "entropy": 2.1457834243774414
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Tomato___Late_blight\\archive (11)_eedd252b-1d20-4cc8-94ca-b8800334996c___GHLB2 Leaf 8667.JPG",
+    "true_class": "Tomato___Late_blight",
+    "predicted_class": "Cabbage___healthy",
+    "confidence": 0.18111401796340942,
+    "entropy": 2.9541525840759277
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Tomato___Leaf_Mold\\archive (11)_Tomato___Leaf_Mold_original_bee64636-a53b-4ecd-9f4f-d71d61148f55___Crnl_L.Mold 8980.JPG_1a221bb9-22c1-4f54-80bd-ee131a67646a.JPG",
+    "true_class": "Tomato___Leaf_Mold",
+    "predicted_class": "Chilli___Leaf_Spot",
+    "confidence": 0.358232706785202,
+    "entropy": 2.791853189468384
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Tomato___Septoria_leaf_spot\\archive (11)_f533a72b-0110-4520-9a41-cb6ea1419f5e___Keller.St_CG 1881.JPG",
+    "true_class": "Tomato___Septoria_leaf_spot",
+    "predicted_class": "Chilli___Leaf_Spot",
+    "confidence": 0.2347591668367386,
+    "entropy": 2.827252149581909
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Tomato___Spider_mites Two-spotted_spider_mite\\archive (11)_f2eb1f1a-3973-4ebf-8392-19d12f0ab759___Com.G_SpM_FL 8740.JPG",
+    "true_class": "Tomato___Spider_mites Two-spotted_spider_mite",
+    "predicted_class": "Pest___Mites",
+    "confidence": 0.12003321945667267,
+    "entropy": 3.288074016571045
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Tomato___Target_Spot\\archive (11)_f6b99987-84a9-41a9-914d-538250b5f5a5___Com.G_TgS_FL 7971.JPG",
+    "true_class": "Tomato___Target_Spot",
+    "predicted_class": "Chilli___Leaf_Spot",
+    "confidence": 0.24336092174053192,
+    "entropy": 3.1850240230560303
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Tomato___Tomato_Yellow_Leaf_Curl_Virus\\c55a139e-b525-4ea8-adad-1d4d18f432bd___YLCV_NREC 2218.JPG",
+    "true_class": "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+    "predicted_class": "Chilli___Leaf_Spot",
+    "confidence": 0.15912191569805145,
+    "entropy": 3.1477582454681396
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Tomato___Tomato_mosaic_virus\\archive (11)_Tomato___Tomato_mosaic_virus_original_f7066d3e-694d-44a0-a42a-a8fb1eb52ff7___PSU_CG 2190.JPG_7daac063-9184-4183-b4f4-a87abc50a316.JPG",
+    "true_class": "Tomato___Tomato_mosaic_virus",
+    "predicted_class": "Chilli___Leaf_Spot",
+    "confidence": 0.16970334947109222,
+    "entropy": 2.99600887298584
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Tomato___healthy\\archive (11)_fb2c7e00-39a7-4be3-b8d1-b4c42c65e20e___RS_HL 9636.JPG",
+    "true_class": "Tomato___healthy",
+    "predicted_class": "Peach___healthy",
+    "confidence": 0.19858966767787933,
+    "entropy": 3.152184247970581
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Vegetable___Bean\\archive (18)_1328.jpg",
+    "true_class": "Vegetable___Bean",
+    "predicted_class": "Vegetable___Carrot",
+    "confidence": 0.25514867901802063,
+    "entropy": 2.767164945602417
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Vegetable___Bitter_Gourd\\archive (18)_1328.jpg",
+    "true_class": "Vegetable___Bitter_Gourd",
+    "predicted_class": "Pest___Aphids",
+    "confidence": 0.15752778947353363,
+    "entropy": 3.25689959526062
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Vegetable___Bottle_Gourd\\archive (18)_1328.jpg",
+    "true_class": "Vegetable___Bottle_Gourd",
+    "predicted_class": "Chilli___Leaf_Spot",
+    "confidence": 0.19814586639404297,
+    "entropy": 3.1314120292663574
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Vegetable___Brinjal\\archive (18)_1328.jpg",
+    "true_class": "Vegetable___Brinjal",
+    "predicted_class": "Chilli___Leaf_Spot",
+    "confidence": 0.18323694169521332,
+    "entropy": 2.740849256515503
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Vegetable___Broccoli\\archive (18)_1328.jpg",
+    "true_class": "Vegetable___Broccoli",
+    "predicted_class": "Pest___Sawfly",
+    "confidence": 0.12123613059520721,
+    "entropy": 3.202603578567505
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Vegetable___Cabbage\\archive (18)_1320.jpg",
+    "true_class": "Vegetable___Cabbage",
+    "predicted_class": "Vegetable___Radish",
+    "confidence": 0.19594146311283112,
+    "entropy": 2.736370086669922
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Vegetable___Capsicum\\archive (18)_1318.jpg",
+    "true_class": "Vegetable___Capsicum",
+    "predicted_class": "Vegetable___Potato",
+    "confidence": 0.3612223267555237,
+    "entropy": 2.284898042678833
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Vegetable___Carrot\\archive (18)_1328.jpg",
+    "true_class": "Vegetable___Carrot",
+    "predicted_class": "Cabbage___healthy",
+    "confidence": 0.27374565601348877,
+    "entropy": 2.4990789890289307
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Vegetable___Cauliflower\\archive (18)_1384.jpg",
+    "true_class": "Vegetable___Cauliflower",
+    "predicted_class": "Wheat___Blast",
+    "confidence": 0.13468632102012634,
+    "entropy": 3.1055502891540527
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Vegetable___Cucumber\\archive (18)_1328.jpg",
+    "true_class": "Vegetable___Cucumber",
+    "predicted_class": "Vegetable___Carrot",
+    "confidence": 0.3037340044975281,
+    "entropy": 2.181187868118286
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Vegetable___Papaya\\archive (18)_1328.jpg",
+    "true_class": "Vegetable___Papaya",
+    "predicted_class": "Chilli___Anthracnose",
+    "confidence": 0.24685029685497284,
+    "entropy": 2.5048556327819824
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Vegetable___Pumpkin\\archive (18)_1318.jpg",
+    "true_class": "Vegetable___Pumpkin",
+    "predicted_class": "Pest___Sawfly",
+    "confidence": 0.15504592657089233,
+    "entropy": 3.305453300476074
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Vegetable___Radish\\archive (18)_1328.jpg",
+    "true_class": "Vegetable___Radish",
+    "predicted_class": "Pest___Stem_Borer",
+    "confidence": 0.0979037955403328,
+    "entropy": 3.2414956092834473
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Vegetable___Tomato\\archive (18)_1318.jpg",
+    "true_class": "Vegetable___Tomato",
+    "predicted_class": "Pest___Sawfly",
+    "confidence": 0.5258973240852356,
+    "entropy": 1.9064751863479614
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Wheat___Aphids\\archive (2)_aphid_887.png",
+    "true_class": "Wheat___Aphids",
+    "predicted_class": "Chilli___Whitefly",
+    "confidence": 0.13552817702293396,
+    "entropy": 2.9674816131591797
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Wheat___Common_root_rot\\archive (2)_common_root_rot_64.png",
+    "true_class": "Wheat___Common_root_rot",
+    "predicted_class": "Pest___Sawfly",
+    "confidence": 0.3614245653152466,
+    "entropy": 2.48319935798645
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Wheat___Fusarium_head_blight\\archive (2)_fusarium_head_blight_test_35.png",
+    "true_class": "Wheat___Fusarium_head_blight",
+    "predicted_class": "Chilli___Whitefly",
+    "confidence": 0.24754926562309265,
+    "entropy": 2.6461477279663086
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Wheat___Leaf_blight\\archive (2)_leaf_blight_830.png",
+    "true_class": "Wheat___Leaf_blight",
+    "predicted_class": "Chilli___Leaf_Spot",
+    "confidence": 0.20327194035053253,
+    "entropy": 3.0653703212738037
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Wheat___Mildew\\archive (2)_mildew_test_17.png",
+    "true_class": "Wheat___Mildew",
+    "predicted_class": "Pest___Mites",
+    "confidence": 0.16290411353111267,
+    "entropy": 3.129361867904663
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Wheat___Smut\\archive (2)_smut_59.png",
+    "true_class": "Wheat___Smut",
+    "predicted_class": "Wheat___Blast",
+    "confidence": 0.22413890063762665,
+    "entropy": 2.6759679317474365
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Wheat___Tan_spot\\archive (2)_tan_spot_78.png",
+    "true_class": "Wheat___Tan_spot",
+    "predicted_class": "Wheat___Smut",
+    "confidence": 0.7317322492599487,
+    "entropy": 1.2541718482971191
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Wheat___Yellow_rust\\archive (2)_yellow_rust_891.png",
+    "true_class": "Wheat___Yellow_rust",
+    "predicted_class": "Pest___Sawfly",
+    "confidence": 0.19915549457073212,
+    "entropy": 2.6144986152648926
+  },
+  {
+    "image_path": "C:\\AI Crop Disease Detection System\\datasets\\combined_dataset\\Wheat___healthy\\archive (2)_healthy_test_12.png",
+    "true_class": "Wheat___healthy",
+    "predicted_class": "Wheat___Blast",
+    "confidence": 0.4834137260913849,
+    "entropy": 2.236997604370117
+  }
+]

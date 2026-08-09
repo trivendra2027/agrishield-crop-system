@@ -1,0 +1,19 @@
+{
+  "timestamp": "2026-07-19 17:55:02",
+  "split_ratio": {
+    "train": 0.7,
+    "val": 0.15,
+    "test": 0.15
+  },
+  "seed": 42,
+  "total_classes": 1226,
+  "total_images": 378396,
+  "train_images": 264877,
+  "train_percentage": 70.0,
+  "val_images": 56754,
+  "val_percentage": 15.0,
+  "test_images": 56765,
+  "test_percentage": 15.0,
+  "split_directory": "C:\\AI Crop Disease Detection System\\datasets\\split_dataset",
+  "execution_time_minutes": 8.33
+}
