@@ -399,24 +399,26 @@ const ScanImageUploader = ({
       )}
 
       {/* Supported Targets Tag Bar */}
-      <div className="mt-6 flex flex-wrap items-center gap-2 pt-4 border-t border-slate-100 dark:border-slate-800">
-        <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">Supported Target Classes:</span>
-        {config.supportedItems.map((item) => (
-          <Badge key={item} variant="default" className="text-[10px]">
-            {item}
-          </Badge>
-        ))}
+      <div className="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800">
+        <span className="block mb-2 text-[11px] font-bold uppercase tracking-wider text-slate-400">Supported Target Classes:</span>
+        <div className="flex flex-wrap items-center gap-2">
+          {config.supportedItems.map((item) => (
+            <Badge key={item} variant="default" className="text-[10px]">
+              {item}
+            </Badge>
+          ))}
+        </div>
       </div>
 
       {/* Crop Category Selector for Disease Diagnosis */}
       {tabId === 'disease-diag' && (
         <div className="mt-6 p-4 rounded-2xl bg-emerald-50/70 dark:bg-emerald-950/40 border border-emerald-200/80 dark:border-emerald-800/80">
-          <label className="block text-xs font-bold text-emerald-900 dark:text-emerald-200 mb-1.5 flex items-center justify-between">
+          <label className="block text-xs font-bold text-emerald-900 dark:text-emerald-200 mb-2 flex flex-col sm:flex-row sm:items-center justify-between gap-1.5">
             <span className="flex items-center gap-1.5">
-              <Sprout className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-              {t('uploader.select_crop', 'Select Target Crop Category (Recommended)')}
+              <Sprout className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+              <span className="truncate">{t('uploader.select_crop', 'Select Target Crop Category (Recommended)')}</span>
             </span>
-            <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-normal">{t('uploader.boost_accuracy', 'Boosts Accuracy to 99.4%')}</span>
+            <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-normal whitespace-nowrap">{t('uploader.boost_accuracy', 'Boosts Accuracy to 99.4%')}</span>
           </label>
           <select
             value={selectedCropFilter}
