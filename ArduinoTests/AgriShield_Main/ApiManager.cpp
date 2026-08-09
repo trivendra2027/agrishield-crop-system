@@ -1,5 +1,6 @@
 #include "ApiManager.h"
 #include <HTTPClient.h>
+#include <WiFiClientSecure.h>
 #include <ArduinoJson.h>
 #include "SystemData.h"
 #include "Logger.h"
@@ -34,8 +35,20 @@ String ApiManager::performHttpRequest(String endpoint, String payload, String me
     uint32_t heapBefore = MemoryManager::getFreeHeap();
     HTTPClient http;
     String fullUrl = currentApiBaseUrl + endpoint;
-    http.begin(fullUrl);
-    http.setTimeout(5000); // 5000ms for reliable cloud & internet latency
+    
+    if (fullUrl.startsWith("https://")) {
+        WiFiClientSecure *client = new WiFiClientSecure;
+        if(client) {
+            client->setInsecure(); // Skip certificate validation for Render cloud
+            http.begin(*client, fullUrl);
+        } else {
+            http.begin(fullUrl);
+        }
+    } else {
+        http.begin(fullUrl);
+    }
+    
+    http.setTimeout(8000); // 8000ms for reliable cloud & internet latency
     http.setReuse(false);
     
     String token = PreferencesManager::loadDeviceToken();

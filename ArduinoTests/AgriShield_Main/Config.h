@@ -10,7 +10,7 @@ struct KnownWiFi {
 };
 
 // Global Cloud Backend URL
-#define CLOUD_API_URL "http://agrishield-api-7i0o.onrender.com/api/v1"
+#define CLOUD_API_URL "https://agrishield-api-7i0o.onrender.com/api/v1"
 
 // Add all your Wi-Fi networks here - they will all connect to the global cloud backend!
 const KnownWiFi KNOWN_WIFI_NETWORKS[] = {
