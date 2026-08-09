@@ -2,6 +2,13 @@
 
 *This file automatically tracks all major code, architecture, and configuration updates to prevent work loss.*
 
+## 2026-08-09 - Complete Cloud Deployment to GitHub, Render, Vercel & MongoDB Atlas
+- **GitHub Repository Provisioned:** Initialized and pushed full clean repository (`https://github.com/trivendra2027/agrishield-crop-system.git`) with optimized `.gitignore` for ML and frontend artifacts.
+- **FastAPI AI Backend on Render:** Deployed containerized backend to `https://agrishield-api-7i0o.onrender.com` with CPU-optimized PyTorch, `timm` neural loader, and Pydantic Settings safe defaults.
+- **Frontend SPA on Vercel:** Deployed React Vite dashboard to `https://agrishield-crop-system.vercel.app` with `VITE_API_URL` pointing to Render cloud API.
+- **Full Database Migration to Atlas:** Migrated 2,055 documents across all 20 collections (users, predictions, devices, farm profiles, 1,472 sensor telemetry records) to AWS Mumbai MongoDB Atlas cluster (`agrishield_db`).
+- **ESP32 Global Firmware Update:** Pointed `Config.h` and `ApiManager.cpp` to the Render cloud backend with a 5000ms latency buffer for remote hotspot and field Wi-Fi streaming.
+
 ---
 
 ## 2026-08-07
