@@ -150,6 +150,7 @@ def find_last_conv_layer(model):
     """Find the last layer in the model that outputs a spatial feature map (4D tensor).
     This cleanly supports nested Functional models without graph disconnection errors.
     """
+    import tensorflow as tf
     for layer in reversed(model.layers):
         # Check if layer has a 4D output shape like (None, H, W, C)
         try:
@@ -173,6 +174,7 @@ def find_last_conv_layer(model):
 
 def generate_gradcam_plusplus(model, img_array, last_conv_layer, class_idx) -> np.ndarray:
     """Generates Grad-CAM++ heatmap showing multiple focus areas."""
+    import tensorflow as tf
     try:
         grad_model = tf.keras.models.Model(
             inputs=model.inputs,
@@ -217,6 +219,7 @@ def generate_gradcam_plusplus(model, img_array, last_conv_layer, class_idx) -> n
 
 def generate_scorecam(model, img_array, last_conv_layer, class_idx) -> np.ndarray:
     """Generates Score-CAM heatmap using activation maps as forward pass masks."""
+    import tensorflow as tf
     try:
         # Create model mapping input to last conv layer activations
         activation_model = tf.keras.models.Model(inputs=model.inputs, outputs=last_conv_layer.output)
