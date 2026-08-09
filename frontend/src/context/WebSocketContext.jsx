@@ -110,14 +110,20 @@ export const WebSocketProvider = ({ children }) => {
     }
 
     const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
-    let host = window.location.host;
+    
+    // Default to Render backend if VITE_API_URL is missing
+    let host = 'agrishield-api-7i0o.onrender.com';
+    
     if (import.meta.env.VITE_API_URL) {
       try {
         const urlObj = new URL(import.meta.env.VITE_API_URL);
         host = urlObj.host;
       } catch (e) {
-        console.warn('Could not parse VITE_API_URL host, using window.location.host');
+        console.warn('Could not parse VITE_API_URL host, using default Render host');
       }
+    } else if (typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')) {
+      // Local development fallback
+      host = `${window.location.hostname}:8000`;
     }
 
     const authToken = token || localStorage.getItem('token') || sessionStorage.getItem('token') || '';
