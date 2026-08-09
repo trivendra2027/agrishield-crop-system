@@ -10,8 +10,16 @@ class Settings(BaseSettings):
 
     from pydantic import Field
     # Security
-    JWT_SECRET_KEY: str = Field(..., min_length=32, description="Must be set in .env")
-    REFRESH_TOKEN_SECRET_KEY: str = Field(..., min_length=32, description="Must be set in .env")
+    JWT_SECRET_KEY: str = Field(
+        default="agrishield_super_secure_jwt_secret_key_2026_production_safe_token",
+        min_length=32,
+        description="JWT Secret key for auth"
+    )
+    REFRESH_TOKEN_SECRET_KEY: str = Field(
+        default="agrishield_super_secure_refresh_token_secret_key_2026_safe",
+        min_length=32,
+        description="Refresh token secret key"
+    )
     JWT_ALGORITHM: str = "HS256"
     JWT_ISSUER: str = "crop_disease_detection_api"
     JWT_AUDIENCE: str = "crop_disease_detection_app"
@@ -26,11 +34,11 @@ class Settings(BaseSettings):
 
     # File Upload & API Limits
     MAX_UPLOAD_SIZE_MB: int = 15
-    ALLOWED_ORIGINS: str = "http://localhost:3000,http://localhost:5173,http://127.0.0.1:3000,http://127.0.0.1:5173"
+    ALLOWED_ORIGINS: str = "*"
 
     # Database
     MONGODB_URI: str = "mongodb://localhost:27017"
-    DATABASE_NAME: str = "crop_disease_db"
+    DATABASE_NAME: str = "agrishield_db"
 
     # NVIDIA NIM API Settings
     NVIDIA_API_KEY: str = ""
