@@ -6,8 +6,10 @@ import numpy as np
 import torch
 import torch.nn as nn
 from PIL import Image
-from torchvision import transforms
-import timm
+try:
+    import timm
+except ImportError:
+    timm = None
 
 from model.configs.config import PipelineConfig
 
