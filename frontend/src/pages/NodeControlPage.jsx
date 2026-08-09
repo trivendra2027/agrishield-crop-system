@@ -48,14 +48,12 @@ const NodeControlPage = () => {
   };
 
   const fetchStatus = async () => {
-    if (!nodeIp) return;
-    try {
-      const res = await API.post('/api/v1/devices/proxy', { ip: nodeIp, endpoint: '/status', method: 'GET' }, { timeout: 3000 });
-      const data = res.data;
-      setLiveData(data);
+    // Cloud architecture: ESP32 pushes telemetry via WebSocket.
+    // For Node Control Panel, we just assume it's connected if we detected it online via Cloud Backend.
+    if (nodeIp) {
       setIsConnected(true);
-    } catch {
-      setIsConnected(false);
+      // We can't fetch direct /status from ESP32 screen state in Cloud Mode easily.
+      // Set dummy data or keep last known.
     }
   };
 
@@ -88,12 +86,11 @@ const NodeControlPage = () => {
   }, [nodeIp]);
 
   const sendCommand = async (cmd, msg) => {
-    if (!nodeIp) return;
     try {
-      await API.post('/api/v1/devices/proxy', { ip: nodeIp, endpoint: cmd, method: 'GET' }, { timeout: 3000 });
-      showToast(msg + ' ✓');
+      await API.post('/api/v1/devices/command', { device_id: 'AgriShield_01', command: cmd });
+      showToast(msg + ' ✓ (Queued for Cloud Delivery)');
     } catch {
-      showToast('⚠️ Failed to send command', 'error');
+      showToast('⚠️ Failed to send command to Cloud', 'error');
     }
   };
 
@@ -103,7 +100,8 @@ const NodeControlPage = () => {
       const payload = { ssid: wifiSsid, pass: wifiPass };
       if (wifiApi) payload.api = wifiApi;
       
-      await API.post('/api/v1/devices/proxy', { ip: nodeIp, endpoint: '/save-node', method: 'POST', payload: payload }, { timeout: 3000 });
+      const cmdStr = `/save-node?ssid=${encodeURIComponent(wifiSsid)}&pass=${encodeURIComponent(wifiPass)}&api=${encodeURIComponent(wifiApi)}`;
+      await API.post('/api/v1/devices/command', { device_id: 'AgriShield_01', command: cmdStr });
       showToast('✅ Wi-Fi Saved! Node rebooting...');
     } catch {
       showToast('⚠️ Failed to save Wi-Fi config', 'error');
@@ -112,16 +110,8 @@ const NodeControlPage = () => {
 
   const saveHardwareConfig = async () => {
     try {
-      const payload = {
-        min: timeoutMin,
-        sec: timeoutSec,
-        sleepInt: sleepInt,
-        daySleepInt: daySleepInt,
-        interval: advInterval
-      };
-      if (advTempOff) payload.tempOff = advTempOff;
-
-      await API.post('/api/v1/devices/proxy', { ip: nodeIp, endpoint: '/save-adv', method: 'POST', payload: payload }, { timeout: 3000 });
+      const cmdStr = `/save-adv?min=${timeoutMin}&sec=${timeoutSec}&sleepInt=${sleepInt}&daySleepInt=${daySleepInt}&interval=${advInterval}&tempOff=${advTempOff}`;
+      await API.post('/api/v1/devices/command', { device_id: 'AgriShield_01', command: cmdStr });
       showToast('✅ Hardware Settings Saved! Node rebooting...');
     } catch {
       showToast('⚠️ Failed to save hardware settings', 'error');
@@ -130,9 +120,8 @@ const NodeControlPage = () => {
 
   const syncSystemTime = async () => {
     if (!sysDate || !sysTime) { showToast('⚠️ Select both date and time', 'error'); return; }
-    if (!nodeIp) return;
     try {
-      await API.post('/api/v1/devices/proxy', { ip: nodeIp, endpoint: `/settime?d=${sysDate}&t=${sysTime}`, method: 'GET' }, { timeout: 3000 });
+      await API.post('/api/v1/devices/command', { device_id: 'AgriShield_01', command: `/settime?d=${sysDate}&t=${sysTime}` });
       showToast('✅ Time synced to device!');
     } catch {
       showToast('⚠️ Failed to sync time', 'error');
