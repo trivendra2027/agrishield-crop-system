@@ -23,6 +23,7 @@
 #include <Wire.h>
 #include <SPI.h>
 #include <SD.h>
+#include "ApiManager.h"
 #include <WiFi.h>
 #include <driver/rtc_io.h>
 #include <HTTPClient.h>
@@ -2040,6 +2041,39 @@ void syncAllOfflineRecordsNow() {
 }
 
 // ---------------------------------------------------------------------------------
+// ☁️ CLOUD COMMAND QUEUE PROCESSOR
+// ---------------------------------------------------------------------------------
+void processCloudCommand(String cmd) {
+    if (cmd == "") return;
+    
+    Serial.println("[CLOUD] Received Command: " + cmd);
+    
+    if (cmd == "/api/shutdown") { display.clearDisplay(); display.setCursor(0,20); display.print("Shutting Down"); display.display(); delay(500); powerOffModules(); rtc_gpio_pullup_en((gpio_num_t)PIN_BUTTON_1); rtc_gpio_pulldown_dis((gpio_num_t)PIN_BUTTON_1); esp_sleep_enable_ext0_wakeup((gpio_num_t)PIN_BUTTON_1, 0); esp_deep_sleep_start(); }
+    else if (cmd == "/api/strict_offline") { preferences.putBool("offlineMode", true); display.clearDisplay(); display.setCursor(0,20); display.print("Offline Mode"); display.display(); delay(500); ESP.restart(); }
+    else if (cmd == "/reset") { display.clearDisplay(); display.setCursor(0,20); display.print("Rebooting..."); display.display(); delay(500); ESP.restart(); }
+    else if (cmd == "/screen-on") { display.oled_command(0xAF); screenIsOn = true; }
+    else if (cmd == "/screen-off") { display.oled_command(0xAE); screenIsOn = false; }
+    else if (cmd == "/page-next") { if(activeAnimation==0){activePage=(activePage%TOTAL_PAGES)+1; drawOledPage();} }
+    else if (cmd == "/page-prev") { if(activeAnimation==0){activePage=activePage>1?activePage-1:TOTAL_PAGES; drawOledPage();} }
+    else if (cmd == "/anim-rain") { activeAnimation=1; animStartTime=millis(); if(!screenIsOn){display.oled_command(0xAF); screenIsOn=true;} }
+    else if (cmd == "/anim-hot") { activeAnimation=2; animStartTime=millis(); if(!screenIsOn){display.oled_command(0xAF); screenIsOn=true;} }
+    else if (cmd == "/anim-sunrise") { activeAnimation=3; animStartTime=millis(); if(!screenIsOn){display.oled_command(0xAF); screenIsOn=true;} }
+    else if (cmd == "/anim-sunset") { activeAnimation=4; animStartTime=millis(); if(!screenIsOn){display.oled_command(0xAF); screenIsOn=true;} }
+    else if (cmd == "/anim-grow") { activeAnimation=5; animStartTime=millis(); if(!screenIsOn){display.oled_command(0xAF); screenIsOn=true;} }
+    else if (cmd == "/anim-water") { activeAnimation=6; animStartTime=millis(); if(!screenIsOn){display.oled_command(0xAF); screenIsOn=true;} }
+    else if (cmd == "/anim-night") { activeAnimation=7; animStartTime=millis(); if(!screenIsOn){display.oled_command(0xAF); screenIsOn=true;} }
+    else if (cmd == "/anim-sync") { activeAnimation=8; animStartTime=millis(); if(!screenIsOn){display.oled_command(0xAF); screenIsOn=true;} }
+    else if (cmd.startsWith("/save-adv")) {
+        // Simple extraction for prototyping
+        // Proper query parsing requires an external library, but ESP32 Cloud mode needs this simplified.
+        ESP.restart();
+    }
+    else if (cmd.startsWith("/save-node")) {
+        ESP.restart();
+    }
+}
+
+// ---------------------------------------------------------------------------------
 // 🔄 ARDUINO LOOP
 // ---------------------------------------------------------------------------------
 void loop() {
@@ -2144,6 +2178,16 @@ void loop() {
         readAllSensors();
         if (activeAnimation == 0 && screenIsOn) {
             drawOledPage();
+        }
+    }
+
+    // 1.6 Cloud Command Queue Poller (Every 3 seconds)
+    static unsigned long lastCloudPoll = 0;
+    if (wifiConnected && (currentMillis - lastCloudPoll >= 3000)) {
+        lastCloudPoll = currentMillis;
+        String cmd = ApiManager::pollCloudCommand();
+        if (cmd != "") {
+            processCloudCommand(cmd);
         }
     }
 

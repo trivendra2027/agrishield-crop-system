@@ -50,14 +50,9 @@ async def lifespan(app: FastAPI):
         except Exception:
             pass
         
-    try:
-        from model.predict import initialize_and_validate
-        initialize_and_validate()  # Strict ML Model startup validation
-    except Exception as e:
-        print(f"\n⚠️  [WARNING] ML Model initialization failed: {e}")
-        print("   Backend will continue to run for API and IoT testing, but inference endpoints will return offline status.\n")
+    # ML Initialization is intentionally skipped on startup to prevent OOM crashes on Render Free Tier (512MB RAM).
+    # The PyTorch model will be dynamically lazy-loaded into memory upon the first /api/predict request.
     yield
-    
     # Shutdown mDNS
     if zc and zc_info:
         try:

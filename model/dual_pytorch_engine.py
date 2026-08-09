@@ -21,7 +21,7 @@ _health_status = {
 
 def get_diagnostics_for_disease(disease_name: str, prediction_status: str) -> dict:
     """Returns static agronomic recommendations based on disease labels."""
-    from model.predict import get_diagnostics_for_disease as _get_diag
+    from model.predict_pytorch import get_diagnostics_for_disease as _get_diag
     return _get_diag(disease_name, prediction_status)
 
 def parse_class_label(class_label: str):

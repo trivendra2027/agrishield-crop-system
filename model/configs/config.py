@@ -18,8 +18,8 @@ class PipelineConfig:
     CLASSES_PATH = os.path.join(BASE_DIR, "classes.json")
     TENSORFLOW_MODEL_PATH = os.path.join(SAVED_MODELS_DIR, "best_model.keras")
     PYTORCH_MODEL_PATH = os.path.join(SAVED_MODELS_DIR, "best_model.pth")
-    MODEL_BACKEND = "tensorflow"
-    BEST_MODEL_PATH = TENSORFLOW_MODEL_PATH
+    MODEL_BACKEND = "dual_pytorch"
+    BEST_MODEL_PATH = PYTORCH_MODEL_PATH
 
     # Hyperparameters & Model settings (Full Training Mode)
     IMAGE_SIZE = (224, 224)

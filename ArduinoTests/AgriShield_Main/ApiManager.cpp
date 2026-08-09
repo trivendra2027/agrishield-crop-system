@@ -227,3 +227,26 @@ bool ApiManager::checkOTA() {
     SystemData::setNetwork(net);
     return false;
 }
+
+String ApiManager::pollCloudCommand() {
+    String endpoint = "/devices/poll-commands/AgriShield_01"; // Hardcoded device ID for simplicity in this prototype
+    uint16_t code;
+    // Fast single-try request to avoid blocking the ESP32 main loop
+    String resp = performHttpRequest(endpoint, "", "GET", &code);
+    
+    if (code == 200 && resp.length() > 0) {
+        // Simple JSON parsing just for the command string
+        // Expected: {"command": "/anim-rain"} or {"command": null}
+        if (resp.indexOf("\"command\":null") == -1 && resp.indexOf("\"command\": null") == -1) {
+            int startIdx = resp.indexOf("\"command\":\"");
+            if (startIdx != -1) {
+                startIdx += 11;
+                int endIdx = resp.indexOf("\"", startIdx);
+                if (endIdx != -1) {
+                    return resp.substring(startIdx, endIdx);
+                }
+            }
+        }
+    }
+    return "";
+}

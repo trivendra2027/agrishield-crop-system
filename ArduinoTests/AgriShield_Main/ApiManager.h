@@ -10,6 +10,7 @@ public:
     static bool postTelemetry(String payload);
     static bool downloadConfig();
     static bool checkOTA();
+    static String pollCloudCommand();
     
 private:
     static String currentApiBaseUrl;

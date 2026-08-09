@@ -22,13 +22,13 @@ from backend.app.models.schemas import (
 from backend.app.services.notification_service import NotificationService
 from backend.app.models.notification import NotificationCreate
 
-# Try to import predict_crop_disease, fallback to dummy classification if not created yet
-from model.predict import predict_crop_disease, get_model_health_status
+# get_model_health_status is lazy loaded inside the endpoint
 
 router = APIRouter(prefix="/api", tags=["Predictions"])
 
 @router.get("/ai/model/status")
 async def get_ai_model_status():
+    from model.predict_pytorch import get_model_health_status
     status_data = get_model_health_status()
     if not status_data["ready"]:
         raise HTTPException(status_code=500, detail=status_data["status"])
@@ -281,7 +281,8 @@ async def predict_pytorch_endpoint(
 
     # Perform prediction using the real PyTorch pipeline
     try:
-        prediction_result = predict_crop_disease(
+        from model.predict_pytorch import predict_crop_disease_pytorch
+        prediction_result = predict_crop_disease_pytorch(
             full_image_path, 
             req.explainer_type or "gradcam++",
             crop_filter=getattr(req, "crop_filter", None)
