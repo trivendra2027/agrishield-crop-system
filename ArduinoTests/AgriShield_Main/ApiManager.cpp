@@ -35,7 +35,8 @@ String ApiManager::performHttpRequest(String endpoint, String payload, String me
     HTTPClient http;
     String fullUrl = currentApiBaseUrl + endpoint;
     http.begin(fullUrl);
-    http.setTimeout(400); // 400ms ultra-fast non-blocking probe timeout
+    http.setTimeout(5000); // 5000ms for reliable cloud & internet latency
+    http.setReuse(false);
     
     String token = PreferencesManager::loadDeviceToken();
     if (token != "") {

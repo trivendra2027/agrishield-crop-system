@@ -9,11 +9,14 @@ struct KnownWiFi {
     const char* api_url;
 };
 
-// Add all your Wi-Fi networks here and the laptop's IP address on that specific network!
+// Global Cloud Backend URL
+#define CLOUD_API_URL "http://agrishield-api-7i0o.onrender.com/api/v1"
+
+// Add all your Wi-Fi networks here - they will all connect to the global cloud backend!
 const KnownWiFi KNOWN_WIFI_NETWORKS[] = {
-    {"vivot4pro", "12345678900", "http://10.28.171.146:8000/api/v1"},    // Network 1 (Mobile Phone Hotspot)
-    {"unknown", "reddygariabbayi", "http://10.28.171.146:8000/api/v1"},  // Network 2 (Laptop's Windows Hotspot)
-    {"", "", ""}                                                         // Network 3 (Farm Backup)
+    {"vivot4pro", "12345678900", CLOUD_API_URL},    // Mobile Phone Hotspot
+    {"unknown", "reddygariabbayi", CLOUD_API_URL},  // Laptop's Hotspot / Home Wi-Fi
+    {"", "", CLOUD_API_URL}                         // Farm Backup
 };
 
 const int KNOWN_WIFI_COUNT = sizeof(KNOWN_WIFI_NETWORKS) / sizeof(KNOWN_WIFI_NETWORKS[0]);
@@ -22,9 +25,9 @@ const int KNOWN_WIFI_COUNT = sizeof(KNOWN_WIFI_NETWORKS) / sizeof(KNOWN_WIFI_NET
 #define WIFI_SSID KNOWN_WIFI_NETWORKS[0].ssid
 #define WIFI_PASS KNOWN_WIFI_NETWORKS[0].password
 
-// Backend - mDNS Auto-Discovery
+// Backend URL
 #define MDNS_HOSTNAME "agrishield-api"
-#define FALLBACK_API_BASE_URL "http://10.28.171.146:8000/api/v1"
+#define FALLBACK_API_BASE_URL CLOUD_API_URL
 #define DEVICE_ID "ESP32-NODE-ALPHA"
 
 // Display Language ("EN" = English, "HI" = Hindi, "TE" = Telugu, "TA" = Tamil)
