@@ -1,8 +1,11 @@
 import axios from 'axios';
 
 const getApiBaseUrl = () => {
-  if (import.meta.env.VITE_API_URL) return import.meta.env.VITE_API_URL;
-  return ''; // Relative pathing to use Vite server proxy seamlessly across all environments
+  if (import.meta.env.VITE_API_URL) return import.meta.env.VITE_API_URL.replace(/\/+$/, '');
+  if (typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')) {
+    return '';
+  }
+  return 'https://agrishield-api-7i0o.onrender.com';
 };
 
 // Create configured Axios instance
