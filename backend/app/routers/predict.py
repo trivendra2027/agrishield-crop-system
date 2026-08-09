@@ -251,6 +251,15 @@ async def identify_plant_endpoint(
             detail=f"Plant identification error: {str(e)}"
         )
 
+# Backwards compatibility alias route
+@router.post("/predict")
+async def predict_legacy_alias(
+    req: PredictRequest,
+    current_user: dict = Depends(get_current_user),
+    db = Depends(get_database)
+):
+    return await predict_pytorch_endpoint(req, current_user, db)
+
 @router.post("/predict-pytorch")
 async def predict_pytorch_endpoint(
     req: PredictRequest,
