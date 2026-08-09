@@ -6,6 +6,7 @@ import {
   Sun, Download, Wifi, Clock, Sliders, RotateCw, Moon, Timer, BatteryFull
 } from 'lucide-react';
 import { Card, Button, Badge } from '../components/ui/index';
+import API from '../services/api';
 
 const NodeControlPage = () => {
   const [activeTab, setActiveTab] = useState('dashboard');
@@ -49,14 +50,8 @@ const NodeControlPage = () => {
   const fetchStatus = async () => {
     if (!nodeIp) return;
     try {
-      const res = await fetch('/api/v1/devices/proxy', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ip: nodeIp, endpoint: '/status', method: 'GET' }),
-        signal: AbortSignal.timeout(3000)
-      });
-      if (!res.ok) throw new Error();
-      const data = await res.json();
+      const res = await API.post('/api/v1/devices/proxy', { ip: nodeIp, endpoint: '/status', method: 'GET' }, { timeout: 3000 });
+      const data = res.data;
       setLiveData(data);
       setIsConnected(true);
     } catch {
@@ -68,9 +63,9 @@ const NodeControlPage = () => {
   useEffect(() => {
     const discoverDevice = async () => {
       try {
-        const res = await fetch('/api/v1/devices/status');
-        if (res.ok) {
-          const devices = await res.json();
+        const res = await API.get('/api/v1/devices/status');
+        if (res.data) {
+          const devices = res.data;
           const activeDevice = devices.find(d => d.status === 'online' && d.ip);
           if (activeDevice) {
             setNodeIp(activeDevice.ip);
@@ -95,12 +90,7 @@ const NodeControlPage = () => {
   const sendCommand = async (cmd, msg) => {
     if (!nodeIp) return;
     try {
-      await fetch('/api/v1/devices/proxy', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ip: nodeIp, endpoint: cmd, method: 'GET' }),
-        signal: AbortSignal.timeout(3000)
-      });
+      await API.post('/api/v1/devices/proxy', { ip: nodeIp, endpoint: cmd, method: 'GET' }, { timeout: 3000 });
       showToast(msg + ' ✓');
     } catch {
       showToast('⚠️ Failed to send command', 'error');
@@ -113,12 +103,7 @@ const NodeControlPage = () => {
       const payload = { ssid: wifiSsid, pass: wifiPass };
       if (wifiApi) payload.api = wifiApi;
       
-      await fetch('/api/v1/devices/proxy', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ip: nodeIp, endpoint: '/save-node', method: 'POST', payload: payload }),
-        signal: AbortSignal.timeout(3000)
-      });
+      await API.post('/api/v1/devices/proxy', { ip: nodeIp, endpoint: '/save-node', method: 'POST', payload: payload }, { timeout: 3000 });
       showToast('✅ Wi-Fi Saved! Node rebooting...');
     } catch {
       showToast('⚠️ Failed to save Wi-Fi config', 'error');
@@ -136,12 +121,7 @@ const NodeControlPage = () => {
       };
       if (advTempOff) payload.tempOff = advTempOff;
 
-      await fetch('/api/v1/devices/proxy', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ip: nodeIp, endpoint: '/save-adv', method: 'POST', payload: payload }),
-        signal: AbortSignal.timeout(3000)
-      });
+      await API.post('/api/v1/devices/proxy', { ip: nodeIp, endpoint: '/save-adv', method: 'POST', payload: payload }, { timeout: 3000 });
       showToast('✅ Hardware Settings Saved! Node rebooting...');
     } catch {
       showToast('⚠️ Failed to save hardware settings', 'error');
@@ -152,12 +132,7 @@ const NodeControlPage = () => {
     if (!sysDate || !sysTime) { showToast('⚠️ Select both date and time', 'error'); return; }
     if (!nodeIp) return;
     try {
-      await fetch('/api/v1/devices/proxy', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ip: nodeIp, endpoint: `/settime?d=${sysDate}&t=${sysTime}`, method: 'GET' }),
-        signal: AbortSignal.timeout(3000)
-      });
+      await API.post('/api/v1/devices/proxy', { ip: nodeIp, endpoint: `/settime?d=${sysDate}&t=${sysTime}`, method: 'GET' }, { timeout: 3000 });
       showToast('✅ Time synced to device!');
     } catch {
       showToast('⚠️ Failed to sync time', 'error');
